@@ -1,0 +1,35 @@
+.class-item {
+  margin-bottom: 14px;
+  margin-left: 14px;
+  margin-right: 14px;
+  // width: 347px;
+  height: 245px;
+  // background-color: red;
+  border-radius: 7px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  .cover-img {
+    height: 140px;
+    // border-radius: 7px 7px 0 0 ;
+  }
+  .content-area {
+    padding: 14px;
+    // border-radius:0 0 7px 7px;
+    // background-color: green;
+  }
+  .desc-text {
+    // display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 8px;
+    color: #4b5563;
+
+    display: -webkit-box ;
+    overflow: hidden; /*隐藏溢出的文本  */
+    text-overflow: ellipsis;
+    word-break: break-all;/*自动换行*/
+    -moz-box-orient: vertical; /*从上到下自动排列子元素*/
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp:1; /*显示的行数*/
+  }
+}
