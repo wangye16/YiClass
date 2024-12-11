@@ -1,24 +1,31 @@
-import { View, Text } from '@tarojs/components'
-import { useLoad ,useTabItemTap} from '@tarojs/taro'
-import ClassList from '../ClassList/components/ClassList'
-import {getClassListAPI} from '@/services/class'
+import { View, Text,Video } from '@tarojs/components'
+import {useRouter, useReady} from '@tarojs/taro'
+import {getClassDescAPI} from '@/services/class'
+import CustomVideo from './components/Video'
 import './index.less'
 import { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 
 export default function Index () {
-  const [classListArr,setClassListArr] = useState([])
-
-  useTabItemTap(() => {
-    getClassList({})
+  const {params:urlParams} = useRouter()
+  const [classDesc,setClassDesc]=useState<any>({})
+  
+  useReady(() => {
+    getClassDesc()
   })
 
 
-  const getClassList = async (props) => {
+  const getClassDesc = async () => {
     try {
-      const response = await getClassListAPI(props);
-      console.log("get response", response)
-      setClassListArr(response.data);
+      const response:any = await getClassDescAPI(urlParams);
+      const {satusCode,data={}} = response
+      if (satusCode==200){ setClassDesc(data)}else{
+        Taro.showToast({
+          title: '请求失败',
+          icon: 'error',
+          duration: 2000
+        })
+      }
     } catch (error) {
       Taro.showToast({
         title: '请求失败',
@@ -36,7 +43,13 @@ export default function Index () {
 
   return (
     <View className='class-container'>
-      123
+      <View
+        className='class-video-container'
+      >
+        <CustomVideo
+          desc={classDesc}
+        />
+      </View>
     </View>
   )
 }

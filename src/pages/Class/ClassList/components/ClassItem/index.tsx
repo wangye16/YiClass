@@ -26,9 +26,8 @@ export default function Index({ classInfo }) {
   const { classId, studyNum,price,coverImage, className, desc } = classInfo;
 
   const onClassItemTap=()=>{
-    console.log('classId',classId);
     Taro.navigateTo({
-      url:`/pages/Class/ClassDesc/index`
+      url:`/pages/Class/ClassDesc/index?classId=${classId}`
     })
   }
 
