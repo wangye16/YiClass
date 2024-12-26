@@ -1,10 +1,11 @@
-import { View, Text, Image, RootPortal } from "@tarojs/components";
+import { View, Text, Image } from "@tarojs/components";
 import { useRouter, useReady } from "@tarojs/taro";
 import { getClassDescAPI } from "@/services/class";
 import studentImg from "@/assets/icons/student.png";
 import CustomVideo from "./components/VideoComp";
 import SessionList from "./components/SessionList";
 import PaymentStatusBar from "./components/PaymentStatusBar";
+import defaultImg from "@/assets/imgs/defaultImg.png";
 import "./index.less";
 import { useEffect, useState } from "react";
 import Taro from "@tarojs/taro";
@@ -12,6 +13,7 @@ import Taro from "@tarojs/taro";
 export default function Index() {
   const { params: urlParams } = useRouter();
   const [classDesc, setClassDesc] = useState<any>({});
+  const [curSessionObj, setCurSessionObj] = useState<any>({});
 
   useReady(() => {
     getClassDesc();
@@ -32,17 +34,29 @@ export default function Index() {
     }
   };
 
-  // 底部支付状态信息的渲染函数
-  const renderPaymentStatusView = ()=>{
-
-  }
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const learningSessionObj = classDesc?.context?.find((i)=>(i.sessionId == classDesc.learningSession))||{}
+    setCurSessionObj(learningSessionObj)
+  }, [classDesc.learningSession]);
 
   return (
     <View className="class-container">
       <View className="class-video-container">
-        <CustomVideo desc={classDesc} />
+        {classDesc?.paymentStatus == 'notPaid'?<Image
+          src={classDesc?.coverImage || defaultImg}
+          lazyLoad
+          style={{
+            width: "100%",
+            height: "100%",
+            background: "#fff",
+            objectFit: "contain",
+          }}
+        ></Image>:<CustomVideo 
+        desc={classDesc}
+        curSessionObj={curSessionObj}
+        sessionId={curSessionObj.sessionId}
+         />}
+        
       </View>
 
       <View className="class-desc-container">
@@ -84,7 +98,7 @@ export default function Index() {
           </View>
         </View>
 
-        <SessionList sessionList={classDesc?.context} />
+        <SessionList classDesc={classDesc} setCurSessionObj={setCurSessionObj}/>
       </View>
       <PaymentStatusBar 
         classDesc={classDesc}

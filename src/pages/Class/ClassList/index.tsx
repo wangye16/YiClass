@@ -1,10 +1,12 @@
-import { View, Text } from '@tarojs/components'
+import { View, Text,Input } from '@tarojs/components'
 import { useLoad ,useTabItemTap} from '@tarojs/taro'
 import ClassList from './components/ClassList'
 import {getClassListAPI} from '@/services/class'
-import './index.less'
+import './index.scss'
 import { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
+import searchIcon from '@/assets/icons/search.png'
+import {AtSearchBar} from 'taro-ui'
 
 export default function Index () {
   const [classListArr,setClassListArr] = useState([])
@@ -36,6 +38,23 @@ export default function Index () {
 
   return (
     <View className='class-container'>
+      
+      <View className='search-container'>
+        {/* <AtSearchBar 
+        fixed
+        showActionButton={false}
+        value='123'
+        onChange={()=>{
+          console.log(123);
+        }}
+      /> */}
+        <Input
+          className='search-input'
+          placeholder={'搜索'}
+          placeholderClass='search-input-placeholder'
+        ></Input>
+      </View>
+      
       <ClassList
         list = {classListArr}
       />
