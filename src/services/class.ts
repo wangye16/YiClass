@@ -2,7 +2,7 @@ import apiClient from './apiClient'
 const prefix = 'class'
 
 const getClassListAPI = (params:any)=>{
-    return apiClient.get(`${prefix}/list`,params)
+    return apiClient.get(`api/courses`,params)
 }
 
 const getClassDescAPI = (params:any)=>{

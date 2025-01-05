@@ -1,12 +1,12 @@
 const tabPageArr = [{
   pagePath: 'pages/HomePage/index',
-  text: '主页',
+  text: '大师简介',
   iconPath:'./assets/icons/home_gray.png',
   selectedIconPath: "./assets/icons/home.png",
 },
 {
   pagePath: 'pages/Class/ClassList/index',
-  text: '课程列表',
+  text: '课堂',
   iconPath:'./assets/icons/book_gray.png',
   selectedIconPath: "./assets/icons/book.png",
 },
@@ -33,7 +33,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: '富山德易堂',
     navigationBarTextStyle: 'black'
   },
   tabBar: {

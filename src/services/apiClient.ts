@@ -4,7 +4,7 @@ import getBAseUrl from '@/utils/getBaseUrl'
 
 
 export default {
-  baseURL: `${getBAseUrl()}/deyitang/api/`, // set default baseURL
+  baseURL: `${getBAseUrl()}/`, // set default baseURL
 
   apiClient(option, method = 'GET') {
     // if option.url is relative path,splicing baseURL
