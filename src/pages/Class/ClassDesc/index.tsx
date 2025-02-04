@@ -12,6 +12,7 @@ import Taro from "@tarojs/taro";
 
 export default function Index() {
   const { params: urlParams } = useRouter();
+  const {classId} = urlParams
   const [classDesc, setClassDesc] = useState<any>({});
   const [curSessionObj, setCurSessionObj] = useState<any>({});
 
@@ -21,8 +22,8 @@ export default function Index() {
 
   const getClassDesc = async () => {
     try {
-      const response: any = await getClassDescAPI(urlParams);
-      const { satusCode, data = {} } = response;
+      const response: any = await getClassDescAPI(classId||'');
+      const { code, data = {} } = response.data;
       setClassDesc(data);
     } catch (error) {
       Taro.showToast({
@@ -54,7 +55,7 @@ export default function Index() {
         ></Image>:<CustomVideo 
         desc={classDesc}
         curSessionObj={curSessionObj}
-        sessionId={curSessionObj.sessionId}
+        sessionId={curSessionObj.sessionId || classDesc.learningSession}
          />}
         
       </View>
@@ -94,7 +95,7 @@ export default function Index() {
               lineHeight: "19px",
             }}
           >
-            {classDesc.desc}
+            {classDesc.description}
           </View>
         </View>
 

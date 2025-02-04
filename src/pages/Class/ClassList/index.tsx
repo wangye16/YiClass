@@ -5,8 +5,6 @@ import {getClassListAPI} from '@/services/class'
 import './index.scss'
 import { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
-import searchIcon from '@/assets/icons/search.png'
-import {AtSearchBar} from 'taro-ui'
 
 export default function Index () {
   const [classListArr,setClassListArr] = useState([])
@@ -19,8 +17,8 @@ export default function Index () {
   const getClassList = async (props) => {
     try {
       const response = await getClassListAPI(props);
-      console.log("get response", response)
-      setClassListArr(response.data);
+      const result = response.data||{}
+      setClassListArr(result.data);
     } catch (error) {
       Taro.showToast({
         title: '请求失败',

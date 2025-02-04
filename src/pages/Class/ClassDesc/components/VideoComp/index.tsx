@@ -26,14 +26,14 @@ export default function Index ({desc,curSessionObj,sessionId}) {
           style={{width:'100%',height:'100%'}}
           autoplay={false}
           // src={videoSrc}
-          src='https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/39_1733225376.mp4'
+          src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/${desc.classId}/${desc.classId}-${sessionId}.mp4`}
           initialTime={progress}
           playBtnPosition='center'
-          signature='测试水印12121'
+          signature='水印'
           pageGesture
           showPlayBtn
-          showCenterPlayBtn
-          showCastingButton
+          // showCenterPlayBtn
+          // showCastingButton
           showScreenLockButton
           showSnapshotButton
         />

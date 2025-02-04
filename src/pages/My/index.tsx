@@ -53,7 +53,7 @@ export default function Index() {
 
   const handleLoginTap = ()=>{
     Taro.login({
-      complete: function (res) {
+      success: function (res) {
         console.log("🚀 ~ handleLoginTap ~ res:", res)
         if (res.code) {
           //发起网络请求

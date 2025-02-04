@@ -6,10 +6,11 @@ import "./index.less";
 
 
 export default function Index({ classInfo }) {
-  const classStatus:any = 'paid'
+  const { classId, studyNum,price,coverImage, className, description,paymentStatus } = classInfo;
+
   const getPriceText = ()=>{
     let resObj = {text:`¥${price}`,color:'#000'}
-    switch (classStatus) {
+    switch (paymentStatus) {
       case 'free':
          resObj.text = '免费'
          resObj.color = '#22C55E'
@@ -23,7 +24,6 @@ export default function Index({ classInfo }) {
     }
     return resObj
   }
-  const { classId, studyNum,price,coverImage, className, desc } = classInfo;
 
   const onClassItemTap=()=>{
     Taro.navigateTo({
@@ -54,7 +54,7 @@ export default function Index({ classInfo }) {
       </View>
       <View className="content-area">
         <View style={{ fontSize: 16, fontWeight: 500 }}>{className}</View>
-        <Text className="desc-text">{desc}</Text>
+        <Text className="desc-text">{description}</Text>
 
         <View style={{ fontSize: 12, marginTop: 20 ,display:'flex',justifyContent:'space-between'}}>
           <View style={{color:'#4B5563'}}>
