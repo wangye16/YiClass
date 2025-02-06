@@ -53,6 +53,7 @@ export default function Index() {
             objectFit: "contain",
           }}
         ></Image>:<CustomVideo 
+        key={curSessionObj.sessionId}
         desc={classDesc}
         curSessionObj={curSessionObj}
         sessionId={curSessionObj.sessionId || classDesc.learningSession}

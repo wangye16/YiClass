@@ -11,13 +11,13 @@ export default function Index ({desc,curSessionObj,sessionId}) {
   useReady(() => {
   })
 
-  useEffect(()=>{
-    const videoContext = Taro.createVideoContext(sessionId+'',videoRef)
-    console.log('src变化了',curSessionObj,videoContext,videoRef.current);
-    // 设置为停止播放状态
-    videoContext.sendDanmu({text:'123'})
-    videoContext.stop()
-  },[videoSrc])
+  // useEffect(()=>{
+  //   const videoContext = Taro.createVideoContext(sessionId+'',videoRef)
+  //   console.log('src变化了',curSessionObj,videoContext,videoRef.current);
+  //   // 设置为停止播放状态
+  //   videoContext.sendDanmu({text:'123'})
+  //   videoContext.stop()
+  // },[videoSrc])
 
   return (
         <Video 
