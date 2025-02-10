@@ -3,18 +3,22 @@ const tabPageArr = [{
   text: '大师简介',
   iconPath:'./assets/icons/home_gray.png',
   selectedIconPath: "./assets/icons/home.png",
+  iconSize: 24
 },
 {
   pagePath: 'pages/Class/ClassList/index',
   text: '课堂',
   iconPath:'./assets/icons/book_gray.png',
   selectedIconPath: "./assets/icons/book.png",
+  iconSize: 24
+
 },
 {
   pagePath: 'pages/My/index',
   text: '我的',
   iconPath:'./assets/icons/my_gray.png',
   selectedIconPath: "./assets/icons/my.png",
+  iconSize: 24
 }]
 
 const allPageArr = [
@@ -39,6 +43,7 @@ export default defineAppConfig({
   tabBar: {
     // custom: true,
     color: '#9CA3AF',
+    
     selectedColor: '#000000',
     backgroundColor: '#fff',
     list: tabPageArr,

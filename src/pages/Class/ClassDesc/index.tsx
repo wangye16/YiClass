@@ -1,6 +1,6 @@
 import { View, Text, Image } from "@tarojs/components";
-import { useRouter, useReady } from "@tarojs/taro";
-import { getClassDescAPI } from "@/services/class";
+import { useRouter, useReady, useUnload } from "@tarojs/taro";
+import { getClassDescAPI,postSessionProgress } from "@/services/class";
 import studentImg from "@/assets/icons/student.png";
 import CustomVideo from "./components/VideoComp";
 import SessionList from "./components/SessionList";
@@ -20,10 +20,34 @@ export default function Index() {
     getClassDesc();
   });
 
+  useUnload(()=>{
+    // 卸载页面时上传所有章节的进度，然后清除缓存
+    const progressArr = classDesc?.context?.map((item)=>({
+        sessionId:item.sessionId,
+        classId,
+        progress :Taro.getStorageSync(item.sessionId+'')
+      }))
+    postSessionProgress(progressArr)
+
+    console.log('视频页面已经卸载，缓存是：',Taro.getStorageInfoSync());
+    Taro.clearStorageSync()
+    console.log('视频页面已经卸载，清除后缓存是：',Taro.getStorageInfoSync());
+    
+  })
+
+  const setProgressStorage=(sessionList)=>{
+    console.log("🚀 ~ setProgressStorage ~ sessionList:", sessionList)
+    sessionList?.map((item)=>{
+      Taro.setStorageSync(item.sessionId+'',item.progress)
+    })
+  }
+
   const getClassDesc = async () => {
     try {
       const response: any = await getClassDescAPI(classId||'');
       const { code, data = {} } = response.data;
+      // 把视频进度放在本地存储
+      setProgressStorage(data.context||[])
       setClassDesc(data);
     } catch (error) {
       Taro.showToast({
@@ -100,7 +124,9 @@ export default function Index() {
           </View>
         </View>
 
-        <SessionList classDesc={classDesc} setCurSessionObj={setCurSessionObj}/>
+        <SessionList 
+        curSessionId = {curSessionObj.sessionId}
+        classDesc={classDesc} setCurSessionObj={setCurSessionObj}/>
       </View>
       <PaymentStatusBar 
         classDesc={classDesc}

@@ -8,8 +8,13 @@ const getClassDescAPI = (classId:string)=>{
     return apiClient.get(`api/course-details/${classId}`,{})
 }
 
+const postSessionProgress = (params)=>{
+    return apiClient.post(`api/course-progress`,params)
+}
+
 export 
 {
     getClassListAPI,
-    getClassDescAPI
+    getClassDescAPI,
+    postSessionProgress
 }
