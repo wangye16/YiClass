@@ -3,7 +3,7 @@ import { useReady } from "@tarojs/taro";
 import { useState } from "react";
 import { TextEllipsis } from "@taroify/core"
 import { getTeacherInfo } from "@/services/home";
-import avatar from "@/assets/imgs/avatar.png";
+import avatar from "@/assets/imgs/teacherAvatar.jpg";
 import jiangbei from '@/assets/icons/jiangbei.png'
 import jiangpai from '@/assets/icons/jiangpai.png'
 import xingxing from '@/assets/icons/xingxing.png'
@@ -12,6 +12,9 @@ import IntroductionTxt from './components/introductionTxt'
 import book2 from '@/assets/imgs/book2.png'
 import book1 from '@/assets/imgs/book1.png'
 import book3 from '@/assets/imgs/book3.jpeg'
+import swiper1 from '@/assets/imgs/swiper1.jpg'
+import swiper2 from '@/assets/imgs/swiper2.jpg'
+import swiper3 from '@/assets/imgs/swiper3.jpg'
 import Taro from "@tarojs/taro";
 import "./index.less";
 
@@ -54,7 +57,7 @@ export default function Index() {
   }]
 
   useReady(() => {
-    getTeacherInfoApi();
+    // getTeacherInfoApi();
   });
 
   const getTeacherInfoApi = async () => {
@@ -116,10 +119,9 @@ export default function Index() {
           style={{height:'100%'}}
           autoplay
         >
-          <SwiperItem className="swiper-item"><Image style={{width:'100%',height:'100%'}} src='https://tse3-mm.cn.bing.net/th/id/OIP-C.qmIh5R-d_DmDKOYgzN09agHaJQ?rs=1&pid=ImgDetMain' /></SwiperItem>
-          <SwiperItem><Image style={{width:'100%',height:'100%'}} src='https://tse3-mm.cn.bing.net/th/id/OIP-C.qmIh5R-d_DmDKOYgzN09agHaJQ?rs=1&pid=ImgDetMain' /></SwiperItem>
-          <SwiperItem><Image style={{width:'100%',height:'100%'}} src='https://tse3-mm.cn.bing.net/th/id/OIP-C.qmIh5R-d_DmDKOYgzN09agHaJQ?rs=1&pid=ImgDetMain' /></SwiperItem>
-          <SwiperItem><Image style={{width:'100%',height:'100%'}} src='https://tse3-mm.cn.bing.net/th/id/OIP-C.qmIh5R-d_DmDKOYgzN09agHaJQ?rs=1&pid=ImgDetMain' /></SwiperItem>
+          <SwiperItem><Image style={{width:'100%',height:'100%'}} src={swiper1} /></SwiperItem>
+          <SwiperItem><Image style={{width:'100%',height:'100%'}} src={swiper2} /></SwiperItem>
+          <SwiperItem><Image style={{width:'100%',height:'100%'}} src={swiper3}/></SwiperItem>
         </Swiper>
       </View>
 
