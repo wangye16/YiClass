@@ -3,14 +3,12 @@ const tabPageArr = [{
   text: '大师简介',
   iconPath:'./assets/icons/home_gray.png',
   selectedIconPath: "./assets/icons/home.png",
-  iconSize: 24
 },
 {
   pagePath: 'pages/Class/ClassList/index',
   text: '课堂',
   iconPath:'./assets/icons/book_gray.png',
   selectedIconPath: "./assets/icons/book.png",
-  iconSize: 24
 
 },
 {
@@ -18,10 +16,15 @@ const tabPageArr = [{
   text: '我的',
   iconPath:'./assets/icons/my_gray.png',
   selectedIconPath: "./assets/icons/my.png",
-  iconSize: 24
 }]
 
 const allPageArr = [
+  {
+    pagePath: 'pages/Login/index',
+    text: '登录',
+    // iconPath:'./assets/icons/book_gray.png',
+    // selectedIconPath: "./assets/icons/book.png",
+  },
   
   ...tabPageArr,
   {
@@ -29,7 +32,8 @@ const allPageArr = [
     text: '课程详情',
     iconPath:'./assets/icons/book_gray.png',
     selectedIconPath: "./assets/icons/book.png",
-  }
+  },
+  
 ]
 
 export default defineAppConfig({
