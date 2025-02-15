@@ -12,9 +12,10 @@ export default function LoginPage() {
     Taro.getUserProfile({
       force:true,
       desc: '用于获取您的昵称和头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
+      success: (res:any) => {
         console.log("🚀 ~ handleLogin ~ res:", res)
-        
+        Taro.setStorageSync('avatarUrl',res?.avatarUrl||'"https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132"')
+        Taro.setStorageSync('nickName',res?.nickName)
         Taro.login({
           async success(res) {
             if (res.code) {
@@ -25,10 +26,19 @@ export default function LoginPage() {
                 code: res.code
               });
               const {openid,token} = response.data
-              Taro.setStorageSync('token',token)
+              if (openid && token) {
+                Taro.setStorageSync('token',token)
               Taro.setStorageSync('openid',openid)
               console.log(response,19)
               Taro.switchTab({url: '/pages/HomePage/index',})
+              }else{
+                Taro.showToast({
+                  title: '登录失败',
+                  icon: 'error',
+                  duration: 2000
+                })
+              }
+              
             } else {
               console.log('登录失败:', res.errMsg);
             }
@@ -60,7 +70,7 @@ export default function LoginPage() {
         <Text className="title">富山德易堂</Text>
         <View className="subtitle">欢迎使用富山德易堂小程序</View>
 
-        <Button className="wechat-btn" onClick={handleLogin}>
+        <Button className="wechat-btn" openType="getUserInfo" onClick={handleLogin}>
           <View className="wechat-btn-wrapper">
             <Image src={wechat} style={{width:20, height:20,marginRight:7,verticalAlign:'middle'}}></Image>
             微信一键登录

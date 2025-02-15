@@ -56,7 +56,10 @@ function Index() {
     }));
     (0,_services_class__WEBPACK_IMPORTED_MODULE_1__.postSessionProgress)(progressArr);
     console.log('视频页面已经卸载，缓存是：', _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
-    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().clearStorageSync();
+    classDesc?.context?.map(item => {
+      console.log('a', item.sessionId);
+      _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().removeStorageSync(item.sessionId);
+    });
     console.log('视频页面已经卸载，清除后缓存是：', _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
   });
   const setProgressStorage = sessionList => {
@@ -140,8 +143,10 @@ function Index() {
             color: "#000"
           },
           children: "\u8BFE\u7A0B\u7B80\u4ECB"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.ScrollView, {
+          scrollY: true,
           style: {
+            height: 150,
             marginTop: 6,
             color: "#4B5563",
             fontSize: 12,
@@ -171,11 +176,16 @@ function Index() {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Index; }
 /* harmony export */ });
-/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/.pnpm/@tarojs+plugin-platform-weapp@4.0.7_@tarojs+service@4.0.7_@tarojs+shared@4.0.7/node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
+/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/.pnpm/@tarojs+plugin-platform-weapp@4.0.7_@tarojs+service@4.0.7_@tarojs+shared@4.0.7/node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tarojs/taro */ "webpack/container/remote/@tarojs/taro");
+/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _services_pay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services/pay */ "./src/services/pay.ts");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 
@@ -189,18 +199,37 @@ function Index(_ref) {
     price
   } = classDesc;
   const [payButtonLoading, setPayButtonLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const onPayTap = () => {
+  const onPayTap = async () => {
     setPayButtonLoading(true);
     // ! todo 支付逻辑
+    const paymentParams = await (0,_services_pay__WEBPACK_IMPORTED_MODULE_2__.pay)({
+      openid: _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().getStorageSync('openid'),
+      orderNumber: 'order123456',
+      totalFee: 1,
+      description: '随便测试'
+    });
+    _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().requestPayment({
+      timeStamp: paymentParams.timeStamp,
+      nonceStr: paymentParams.nonceStr,
+      package: paymentParams.package,
+      signType: paymentParams.signType,
+      paySign: paymentParams.paySign,
+      success(res) {
+        console.log("支付成功:", res);
+      },
+      fail(err) {
+        console.error("支付失败:", err);
+      }
+    });
   };
 
   // 底部支付状态信息的渲染函数
   const renderPaymentStatusView = () => {
     switch (paymentStatus) {
       case "notPaid":
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_2__.View, {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.View, {
           className: "bottom-info",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_2__.View, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.View, {
             style: {
               margin: 15,
               height: 42,
@@ -208,13 +237,13 @@ function Index(_ref) {
               display: 'flex',
               justifyContent: 'space-between'
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.Text, {
               style: {
                 fontSize: 26,
                 fontWeight: "bold"
               },
               children: ["\xA5", price]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
               style: {
                 borderRadius: 21,
                 width: 112,
@@ -233,7 +262,7 @@ function Index(_ref) {
           })
         });
       default:
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {});
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {});
     }
   };
   return renderPaymentStatusView();
@@ -471,6 +500,24 @@ var inst = Page((0,_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__.createPageConfig
 
 
 /* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_pnpm_tarojs_taro_loader_4_0_7_webpack_5_91_0_swc_core_1_3_96_node_modules_tarojs_taro_loader_lib_entry_cache_js_name_pages_Class_ClassDesc_index_index_tsx__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+
+/***/ }),
+
+/***/ "./src/services/pay.ts":
+/*!*****************************!*\
+  !*** ./src/services/pay.ts ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   pay: function() { return /* binding */ pay; }
+/* harmony export */ });
+/* harmony import */ var _apiClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiClient */ "./src/services/apiClient.ts");
+
+const pay = params => {
+  return _apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].post(`api/create-wechat-pay-order`, params);
+};
 
 
 /***/ }),

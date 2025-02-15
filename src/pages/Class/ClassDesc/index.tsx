@@ -1,4 +1,4 @@
-import { View, Text, Image } from "@tarojs/components";
+import { View, Text, Image,ScrollView } from "@tarojs/components";
 import { useRouter, useReady, useUnload } from "@tarojs/taro";
 import { getClassDescAPI,postSessionProgress } from "@/services/class";
 import studentImg from "@/assets/icons/student.png";
@@ -30,7 +30,10 @@ export default function Index() {
     postSessionProgress(progressArr)
 
     console.log('视频页面已经卸载，缓存是：',Taro.getStorageInfoSync());
-    Taro.clearStorageSync()
+    classDesc?.context?.map((item)=>{
+      console.log('a',item.sessionId)
+      Taro.removeStorageSync(item.sessionId)
+    })
     console.log('视频页面已经卸载，清除后缓存是：',Taro.getStorageInfoSync());
     
   })
@@ -112,8 +115,10 @@ export default function Index() {
 
         <View className="class-desc-text">
           <Text style={{ lineHeight: "21px", color: "#000" }}>课程简介</Text>
-          <View
+          <ScrollView
+            scrollY
             style={{
+              height:150,
               marginTop: 6,
               color: "#4B5563",
               fontSize: 12,
@@ -121,7 +126,7 @@ export default function Index() {
             }}
           >
             {classDesc.description}
-          </View>
+          </ScrollView>
         </View>
 
         <SessionList 

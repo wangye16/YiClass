@@ -154,7 +154,7 @@ function Index(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.View, {
         style: {
           fontSize: 12,
-          marginTop: 20,
+          marginTop: 14,
           display: 'flex',
           justifyContent: 'space-between'
         },

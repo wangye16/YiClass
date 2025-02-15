@@ -32,6 +32,8 @@ function LoginPage() {
       // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: res => {
         console.log("🚀 ~ handleLogin ~ res:", res);
+        _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('avatarUrl', res?.avatarUrl || '"https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132"');
+        _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('nickName', res?.nickName);
         _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().login({
           async success(res) {
             if (res.code) {
@@ -45,12 +47,20 @@ function LoginPage() {
                 openid,
                 token
               } = response.data;
-              _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('token', token);
-              _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('openid', openid);
-              console.log(response, 19);
-              _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().switchTab({
-                url: '/pages/HomePage/index'
-              });
+              if (openid && token) {
+                _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('token', token);
+                _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('openid', openid);
+                console.log(response, 19);
+                _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().switchTab({
+                  url: '/pages/HomePage/index'
+                });
+              } else {
+                _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().showToast({
+                  title: '登录失败',
+                  icon: 'error',
+                  duration: 2000
+                });
+              }
             } else {
               console.log('登录失败:', res.errMsg);
             }
@@ -84,6 +94,7 @@ function LoginPage() {
         children: "\u6B22\u8FCE\u4F7F\u7528\u5BCC\u5C71\u5FB7\u6613\u5802\u5C0F\u7A0B\u5E8F"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
         className: "wechat-btn",
+        openType: "getUserInfo",
         onClick: handleLogin,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_4__.View, {
           className: "wechat-btn-wrapper",

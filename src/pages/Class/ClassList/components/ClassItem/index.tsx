@@ -56,7 +56,7 @@ export default function Index({ classInfo }) {
         <View style={{ fontSize: 16, fontWeight: 500 }}>{className}</View>
         <Text className="desc-text">{description}</Text>
 
-        <View style={{ fontSize: 12, marginTop: 20 ,display:'flex',justifyContent:'space-between'}}>
+        <View style={{ fontSize: 12, marginTop: 14 ,display:'flex',justifyContent:'space-between'}}>
           <View style={{color:'#4B5563'}}>
             <Image src={studentImg} style={{width:14, height:14,marginRight:3,verticalAlign:'middle'}}></Image>
              <Text style={{verticalAlign:'middle'}}>{studyNum}人学习</Text>
