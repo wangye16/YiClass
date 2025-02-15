@@ -1,6 +1,6 @@
 // ./src/api/request.ts
 import Taro from '@tarojs/taro'
-import getBAseUrl from '@/utils/getBaseUrl'
+import getBAseUrl from '@/utils/getBAseUrl'
 
 
 export default {

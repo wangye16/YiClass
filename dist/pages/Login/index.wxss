@@ -1,0 +1,70 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[2]!./node_modules/.pnpm/less-loader@12.2.0_less@4.2.1_webpack@5.91.0_@swc+core@1.3.96_/node_modules/less-loader/dist/cjs.js!./src/pages/Login/index.less ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 40rpx;
+}
+.content {
+  margin: auto;
+  text-align: center;
+  max-width: 600rpx;
+}
+.title {
+  font-size: 48rpx;
+  color: #333;
+  margin-bottom: 32rpx;
+}
+.subtitle {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 80rpx;
+}
+.wechat-btn {
+  background: #07c160;
+  width: 560rpx;
+  height: 100rpx;
+  color: white;
+  border: none;
+  padding: 24rpx 48rpx;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin: 0 auto 48rpx;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.wechat-btn-wrapper {
+  width: 400rpx;
+  margin: 0 auto;
+}
+.wechat-btn:hover {
+  opacity: 0.9;
+}
+.wechat-icon {
+  font-size: 40rpx;
+}
+.agreement {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 32rpx;
+}
+.link {
+  display: inline-block;
+  color: #576b95;
+  text-decoration: none;
+}
+.security-tip {
+  font-size: 24rpx;
+  color: #999;
+  position: fixed;
+  bottom: 40rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+

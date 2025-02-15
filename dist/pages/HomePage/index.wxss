@@ -1,0 +1,183 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[2]!./node_modules/.pnpm/less-loader@12.2.0_less@4.2.1_webpack@5.91.0_@swc+core@1.3.96_/node_modules/less-loader/dist/cjs.js!./src/pages/HomePage/components/introductionTxt/index.less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.lines {
+  font-size: 24rpx;
+  line-height: 44rpx;
+  height: 240rpx;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[2]!./node_modules/.pnpm/less-loader@12.2.0_less@4.2.1_webpack@5.91.0_@swc+core@1.3.96_/node_modules/less-loader/dist/cjs.js!./src/pages/HomePage/index.less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.home-container {
+  width: 750rpx;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0);
+  padding: 42rpx;
+}
+.home-container .title-container {
+  width: 100%;
+  height: 196rpx;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: row;
+  padding: 0rpx;
+  gap: 0rpx 28rpx;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  z-index: 0;
+}
+.home-container .title-line1 {
+  margin-top: 6rpx;
+  font-size: 35rpx;
+  font-weight: 500;
+  line-height: 49rpx;
+}
+.home-container .title-line2 {
+  margin-top: 12rpx;
+  font-size: 24.5rpx;
+  font-weight: normal;
+  line-height: 35rpx;
+  letter-spacing: 0rpx;
+  font-feature-settings: "kern" on;
+  color: #4b5563;
+}
+.home-container .title-line3 {
+  margin-top: 16rpx;
+}
+.home-container .title-tag {
+  display: inline-block;
+  width: 112rpx;
+  height: 42rpx;
+  background: #f9fafb;
+  border-radius: 21rpx;
+  font-size: 21rpx;
+  font-weight: normal;
+  line-height: 42rpx;
+  text-align: center;
+}
+.home-container .tags-container {
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  height: 120rpx;
+  width: 100%;
+  /* 自动布局 */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.home-container .tags-tag {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 200rpx;
+  height: 120rpx;
+  border-radius: 14rpx;
+  opacity: 1;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  padding: 21rpx;
+  gap: 0rpx 20rpx;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.home-container .tags-tag-line1 {
+  font-size: 31.5rpx;
+  font-weight: 600;
+  line-height: 49rpx;
+  text-align: center;
+  letter-spacing: 0rpx;
+  font-feature-settings: "kern" on;
+  color: #000000;
+  margin-bottom: 4rpx;
+}
+.home-container .tags-tag-line2 {
+  font-size: 21rpx;
+  font-weight: normal;
+  line-height: 28rpx;
+  text-align: center;
+  letter-spacing: 0rpx;
+  font-feature-settings: "kern" on;
+  color: #4B5563;
+}
+.home-container .swiper-container {
+  width: 100%;
+  height: 420rpx;
+  margin-top: 42rpx;
+}
+.home-container .swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.home-container .achievement-container {
+  width: 100%;
+  margin-top: 42rpx;
+}
+.home-container .achievement-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 42rpx;
+  letter-spacing: 0rpx;
+  margin-bottom: 20rpx;
+  font-feature-settings: "kern" on;
+  color: #000000;
+}
+.home-container .achievement-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.home-container .achievement-item {
+  width: 280rpx;
+  height: 100rpx;
+  margin-bottom: 28rpx;
+  border-radius: 14rpx;
+  opacity: 1;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: column;
+  padding: 21rpx;
+  gap: 0rpx 20rpx;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background: #F9FAFB;
+}
+.home-container .introduction-container {
+  width: 100%;
+  margin-top: 42rpx;
+}
+.home-container .introduction-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 42rpx;
+  letter-spacing: 0rpx;
+  margin-bottom: 20rpx;
+  font-feature-settings: "kern" on;
+  color: #000000;
+}
+.home-container .books-container {
+  width: 100%;
+  margin-top: 48rpx;
+}
+.home-container .books-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 42rpx;
+  letter-spacing: 0rpx;
+  margin-bottom: 20rpx;
+  font-feature-settings: "kern" on;
+  color: #000000;
+}
+.home-container .books-item {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 320rpx;
+  height: 412rpx;
+  margin-right: 28rpx;
+  border-radius: 14rpx;
+  opacity: 1;
+  background: #F9FAFB;
+}
+
