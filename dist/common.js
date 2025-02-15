@@ -86,7 +86,7 @@ const getBaseUrl = () => {
   let BASE_URL = '';
   if (true) {
     //开发环境 - 根据请求不同返回不同的BASE_URL
-    BASE_URL = 'http://qcyufu.demo.natool.cn';
+    BASE_URL = 'http://jzfzhx.demo.natool.cn';
   } else {}
   return BASE_URL;
 };

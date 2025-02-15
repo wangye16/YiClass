@@ -26,31 +26,39 @@
 function LoginPage() {
   const handleLogin = () => {
     console.log("微信登录跳转逻辑");
-    // 后续可接入实际登录逻辑
-    _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().login({
-      async success(res) {
-        if (res.code) {
-          // 获取到 code，发送到服务器
-          console.log('登录成功，code:', res.code);
-          // 将 code 发送到服务器
-          const response = await (0,_services_login__WEBPACK_IMPORTED_MODULE_2__.postLogin)({
-            code: res.code
-          });
-          const {
-            openid,
-            token
-          } = response.data;
-          _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('token', token);
-          _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('openid', openid);
-          console.log(response, 19);
-          _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().switchTab({
-            url: '/pages/HomePage/index'
-          });
-        } else {
-          console.log('登录失败:', res.errMsg);
-        }
+    _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().getUserProfile({
+      force: true,
+      desc: '用于获取您的昵称和头像',
+      // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: res => {
+        console.log("🚀 ~ handleLogin ~ res:", res);
+        _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().login({
+          async success(res) {
+            if (res.code) {
+              // 获取到 code，发送到服务器
+              console.log('登录成功，code:', res.code);
+              // 将 code 发送到服务器
+              const response = await (0,_services_login__WEBPACK_IMPORTED_MODULE_2__.postLogin)({
+                code: res.code
+              });
+              const {
+                openid,
+                token
+              } = response.data;
+              _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('token', token);
+              _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().setStorageSync('openid', openid);
+              console.log(response, 19);
+              _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().switchTab({
+                url: '/pages/HomePage/index'
+              });
+            } else {
+              console.log('登录失败:', res.errMsg);
+            }
+          }
+        });
       }
     });
+    // 后续可接入实际登录逻辑
   };
   const hndleReadLink1 = () => {
     // Taro.showModal({

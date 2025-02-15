@@ -205,8 +205,8 @@
 /******/ 				"webpack/container/remote/@tarojs/runtime",
 /******/ 				"webpack/container/remote/@tarojs/taro",
 /******/ 				"webpack/container/remote/react",
-/******/ 				"webpack/container/remote/react/jsx-runtime",
-/******/ 				"webpack/container/remote/@taroify/core"
+/******/ 				"webpack/container/remote/@taroify/core",
+/******/ 				"webpack/container/remote/react/jsx-runtime"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
@@ -240,14 +240,14 @@
 /******/ 				"./react",
 /******/ 				null
 /******/ 			],
-/******/ 			"webpack/container/remote/react/jsx-runtime": [
-/******/ 				"default",
-/******/ 				"./react/jsx-runtime",
-/******/ 				null
-/******/ 			],
 /******/ 			"webpack/container/remote/@taroify/core": [
 /******/ 				"default",
 /******/ 				"./@taroify/core",
+/******/ 				null
+/******/ 			],
+/******/ 			"webpack/container/remote/react/jsx-runtime": [
+/******/ 				"default",
+/******/ 				"./react/jsx-runtime",
 /******/ 				null
 /******/ 			]
 /******/ 		};
