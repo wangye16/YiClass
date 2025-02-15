@@ -6,7 +6,6 @@ import Taro from '@tarojs/taro'
 import { log } from 'console'
 
 export default function Index ({desc,curSessionObj,sessionId}) {
-  const {videoSrc,progress}=curSessionObj
   const videoRef = useRef<HTMLInputElement>(null)
   
   useReady(() => {

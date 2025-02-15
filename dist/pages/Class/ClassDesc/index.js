@@ -409,10 +409,6 @@ function Index(_ref) {
     curSessionObj,
     sessionId
   } = _ref;
-  const {
-    videoSrc,
-    progress
-  } = curSessionObj;
   const videoRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {});
   const handleProgressChange = e => {
