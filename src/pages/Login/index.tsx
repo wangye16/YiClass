@@ -2,13 +2,26 @@ import { FaWeixin } from "react-icons/fa";
 import { View, Text,Image, ScrollView, Button,} from "@tarojs/components";
 import wechat from '@/assets/icons/wechat-fill.png'
 import Taro from "@tarojs/taro";
-
+import {postLogin} from '@/services/login'
 import "./index.less"; 
 
 export default function LoginPage() {
   const handleLogin = () => {
     console.log("微信登录跳转逻辑");
     // 后续可接入实际登录逻辑
+    wx.login({
+      async success(res) {
+        if (res.code) {
+          // 获取到 code，发送到服务器
+          console.log('登录成功，code:', res.code);
+          // 将 code 发送到服务器
+          const response = await postLogin(res.code);
+          console.log(response,19)
+        } else {
+          console.log('登录失败:', res.errMsg);
+        }
+      }
+    });
   };
 
   const hndleReadLink1 = () => {

@@ -24,70 +24,69 @@ require("./runtime");
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/@tarojs+taro-loader@4.0.7_webpack@5.91.0_@swc+core@1.3.96_/node_modules/@tarojs/taro-loader/lib/entry-cache.js?name=app!./src/app.ts ***!
   \*****************************************************************************************************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tarojs/taro */ "webpack/container/remote/@tarojs/taro");
-/* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__);
-
+/***/ (function(__unused_webpack_module, __webpack_exports__) {
 
 
 function App(_ref) {
   let {
     children
   } = _ref;
-  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useLaunch)(() => {
-    console.log('useLaunch');
-    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().checkSession({
-      success: function () {
-        console.log('session_key 未过期，并且在本生命周期一直有效');
-        _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().showModal({
-          title: '温馨提示',
-          content: '亲，授权微信登录后才能正常使用小程序功能',
-          success(res) {
-            console.log(res);
-            //如果用户点击了确定按钮
-            if (res.confirm) {
-              _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getUserProfile({
-                desc: '获取你的昵称、头像、地区及性别',
-                success: res => {
-                  console.log(res);
-                  console.log(1);
-                },
-                fail: res => {
-                  console.log(res);
-                  //拒绝授权
-                  _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().showToast({
-                    title: '您拒绝了请求,不能正常使用小程序',
-                    icon: 'error',
-                    duration: 2000
-                  });
-                  return;
-                }
-              });
-            } else if (res.cancel) {
-              //如果用户点击了取消按钮
-              _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().showToast({
-                title: '您拒绝了请求,不能正常使用小程序',
-                icon: 'error',
-                duration: 2000
-              });
-              return;
-            }
-          }
-        });
-        _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getUserProfile({
-          desc: '获取头像和昵称',
-          complete: res => {
-            console.log('res', res);
-          }
-        });
-      },
-      fail: function () {
-        console.log('session_key 已经失效，需要重新执行登录流程');
-        _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().login(); //重新登录
-      }
-    });
-  });
+  // useLaunch(() => {
+  //   console.log('useLaunch');
+
+  //   Taro.checkSession({
+  //     success: function () {
+  //       console.log('session_key 未过期，并且在本生命周期一直有效');
+  //       Taro.showModal({
+  //         title:'温馨提示',
+  //         content: '亲，授权微信登录后才能正常使用小程序功能',
+  //         success(res) {
+  //           console.log(res)
+  //           //如果用户点击了确定按钮
+  //           if (res.confirm) {
+  //             Taro.getUserProfile({
+  //               desc: '获取你的昵称、头像、地区及性别',
+  //               success: res => {
+  //                 console.log(res);
+  //                 console.log(1);
+  //               },
+  //               fail: res => {
+  //                 console.log(res)
+  //                 //拒绝授权
+  //                 Taro.showToast({
+  //                   title: '您拒绝了请求,不能正常使用小程序',
+  //                   icon: 'error',
+  //                   duration: 2000
+  //                 });
+  //                 return;
+  //               }
+  //             });
+  //           } else if (res.cancel) {
+  //             //如果用户点击了取消按钮
+  //             Taro.showToast({
+  //               title: '您拒绝了请求,不能正常使用小程序',
+  //               icon: 'error',
+  //               duration: 2000
+  //             });
+  //             return;
+  //           }
+  //         }
+  //       })
+  //       Taro.getUserProfile({
+  //         desc:'获取头像和昵称',
+  //         complete: (res) => {
+  //           console.log('res',res);
+
+  //         }
+  //       })
+
+  //     },
+  //     fail: function () {
+  //       console.log('session_key 已经失效，需要重新执行登录流程');
+  //       Taro.login() //重新登录
+  //     }
+  //   })
+  // })
 
   // children 是将要会渲染的页面
   return children;
@@ -110,11 +109,11 @@ function App(_ref) {
 /* harmony import */ var _tarojs_plugin_framework_react_dist_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tarojs_plugin_framework_react_dist_runtime__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tarojs/taro */ "webpack/container/remote/@tarojs/taro");
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_pnpm_tarojs_taro_loader_4_0_7_webpack_5_91_0_swc_core_1_3_96_node_modules_tarojs_taro_loader_lib_entry_cache_js_name_app_app_ts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !!../node_modules/.pnpm/@tarojs+taro-loader@4.0.7_webpack@5.91.0_@swc+core@1.3.96_/node_modules/@tarojs/taro-loader/lib/entry-cache.js?name=app!./app.ts */ "./node_modules/.pnpm/@tarojs+taro-loader@4.0.7_webpack@5.91.0_@swc+core@1.3.96_/node_modules/@tarojs/taro-loader/lib/entry-cache.js?name=app!./src/app.ts");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom */ "webpack/container/remote/react-dom");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _node_modules_pnpm_tarojs_taro_loader_4_0_7_webpack_5_91_0_swc_core_1_3_96_node_modules_tarojs_taro_loader_lib_entry_cache_js_name_app_app_ts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/.pnpm/@tarojs+taro-loader@4.0.7_webpack@5.91.0_@swc+core@1.3.96_/node_modules/@tarojs/taro-loader/lib/entry-cache.js?name=app!./app.ts */ "./node_modules/.pnpm/@tarojs+taro-loader@4.0.7_webpack@5.91.0_@swc+core@1.3.96_/node_modules/@tarojs/taro-loader/lib/entry-cache.js?name=app!./src/app.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom */ "webpack/container/remote/react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -126,9 +125,9 @@ function App(_ref) {
 
 
 
-var config = {"pages":["pages/HomePage/index","pages/Class/ClassList/index","pages/My/index","pages/Class/ClassDesc/index"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"富山德易堂","navigationBarTextStyle":"black"},"tabBar":{"color":"#9CA3AF","selectedColor":"#000000","backgroundColor":"#fff","list":[{"pagePath":"pages/HomePage/index","text":"大师简介","iconPath":"./assets/icons/home_gray.png","selectedIconPath":"./assets/icons/home.png"},{"pagePath":"pages/Class/ClassList/index","text":"课堂","iconPath":"./assets/icons/book_gray.png","selectedIconPath":"./assets/icons/book.png"},{"pagePath":"pages/My/index","text":"我的","iconPath":"./assets/icons/my_gray.png","selectedIconPath":"./assets/icons/my.png"}]}};
+var config = {"pages":["pages/Login/index","pages/HomePage/index","pages/Class/ClassList/index","pages/My/index","pages/Class/ClassDesc/index"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"富山德易堂","navigationBarTextStyle":"black"},"tabBar":{"color":"#9CA3AF","selectedColor":"#000000","backgroundColor":"#fff","list":[{"pagePath":"pages/HomePage/index","text":"大师简介","iconPath":"./assets/icons/home_gray.png","selectedIconPath":"./assets/icons/home.png"},{"pagePath":"pages/Class/ClassList/index","text":"课堂","iconPath":"./assets/icons/book_gray.png","selectedIconPath":"./assets/icons/book.png"},{"pagePath":"pages/My/index","text":"我的","iconPath":"./assets/icons/my_gray.png","selectedIconPath":"./assets/icons/my.png"}]}};
 _tarojs_runtime__WEBPACK_IMPORTED_MODULE_1__.window.__taroAppConfig = config
-var inst = App((0,_tarojs_plugin_framework_react_dist_runtime__WEBPACK_IMPORTED_MODULE_2__.createReactApp)(_node_modules_pnpm_tarojs_taro_loader_4_0_7_webpack_5_91_0_swc_core_1_3_96_node_modules_tarojs_taro_loader_lib_entry_cache_js_name_app_app_ts__WEBPACK_IMPORTED_MODULE_4__["default"], react__WEBPACK_IMPORTED_MODULE_5__, (react_dom__WEBPACK_IMPORTED_MODULE_6___default()), config))
+var inst = App((0,_tarojs_plugin_framework_react_dist_runtime__WEBPACK_IMPORTED_MODULE_2__.createReactApp)(_node_modules_pnpm_tarojs_taro_loader_4_0_7_webpack_5_91_0_swc_core_1_3_96_node_modules_tarojs_taro_loader_lib_entry_cache_js_name_app_app_ts__WEBPACK_IMPORTED_MODULE_6__["default"], react__WEBPACK_IMPORTED_MODULE_4__, (react_dom__WEBPACK_IMPORTED_MODULE_5___default()), config))
 
 ;(0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_3__.initPxTransform)({
   designWidth: 375,

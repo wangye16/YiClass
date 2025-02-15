@@ -9,12 +9,12 @@
 
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tarojs/taro */ "webpack/container/remote/@tarojs/taro");
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_getBAseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/getBAseUrl */ "./src/utils/getBAseUrl.ts");
+/* harmony import */ var _utils_getBaseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/getBaseUrl */ "./src/utils/getBaseUrl.ts");
 // ./src/api/request.ts
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  baseURL: `${(0,_utils_getBAseUrl__WEBPACK_IMPORTED_MODULE_1__["default"])()}/`,
+  baseURL: `${(0,_utils_getBaseUrl__WEBPACK_IMPORTED_MODULE_1__["default"])()}/`,
   // set default baseURL
 
   apiClient(option) {
@@ -74,9 +74,9 @@ const postSessionProgress = params => {
 
 /***/ }),
 
-/***/ "./src/utils/getBAseUrl.ts":
+/***/ "./src/utils/getBaseUrl.ts":
 /*!*********************************!*\
-  !*** ./src/utils/getBAseUrl.ts ***!
+  !*** ./src/utils/getBaseUrl.ts ***!
   \*********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__) {
 
@@ -84,7 +84,7 @@ const getBaseUrl = () => {
   let BASE_URL = '';
   if (true) {
     //开发环境 - 根据请求不同返回不同的BASE_URL
-    BASE_URL = 'http://tlpckx.demo.natool.cn';
+    BASE_URL = 'http://pwxjqz.demo.natool.cn';
   } else {}
   return BASE_URL;
 };
