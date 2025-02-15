@@ -435,10 +435,10 @@ function Index(_ref) {
       width: '100%',
       height: '100%'
     },
-    autoplay: false,
-    src: videoSrc
-    // src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/${desc.classId}/${desc.classId}-${sessionId}.mp4`}
+    autoplay: false
+    // src={videoSrc}
     ,
+    src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${desc.classId}/${sessionId}.mp4`,
     initialTime: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync(sessionId + ''),
     playBtnPosition: "center",
     signature: "\u6C34\u5370",

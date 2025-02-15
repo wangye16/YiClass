@@ -1,6 +1,6 @@
 // ./src/api/request.ts
 import Taro from '@tarojs/taro'
-import getBAseUrl from '@/utils/getBaseUrl'
+import getBAseUrl from '@/utils/getBAseUrl'
 
 
 export default {
@@ -16,7 +16,9 @@ export default {
       ...option,
       method,
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token':Taro.getStorageSync('token'),
+        // 'openid':Taro.getStorageSync('openid')
       }
     });
   },
