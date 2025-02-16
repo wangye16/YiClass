@@ -1,4 +1,5 @@
 export default definePageConfig({
-  navigationBarTitleText: '首页',
+  navigationBarTitleText: '富山德易堂',
   usingComponents: {},
+  enablePullDownRefresh:true
 })

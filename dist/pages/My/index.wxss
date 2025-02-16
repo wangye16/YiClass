@@ -1,0 +1,69 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[2]!./node_modules/.pnpm/less-loader@12.2.0_less@4.2.1_webpack@5.91.0_@swc+core@1.3.96_/node_modules/less-loader/dist/cjs.js!./src/pages/My/index.less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.my-container {
+  width: 750rpx;
+  box-sizing: border-box;
+  background-color: #f3f4f6;
+  height: 1400rpx;
+}
+.my-container .list-container {
+  position: relative;
+  top: -84rpx;
+}
+.my-container .my-class-container {
+  box-sizing: border-box;
+  width: 694rpx;
+  height: 360rpx;
+  border-radius: 30rpx;
+  padding: 28rpx;
+  margin: 28rpx;
+  gap: 0rpx 20rpx;
+  background: #ffffff;
+}
+.my-container .card-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 42rpx;
+  height: 42rpx;
+  margin-bottom: 28rpx;
+}
+.my-container .card-list {
+  width: 638rpx;
+  height: 230rpx;
+  margin: 28rpx auto;
+  white-space: nowrap;
+}
+.my-container .card-item {
+  display: inline-block;
+  height: 216rpx;
+  width: 280rpx;
+  margin-right: 28rpx;
+  border-radius: 14rpx;
+}
+.my-container .card-item-title {
+  width: 260rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 24rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
+}
+.my-container .login-button {
+  width: 638rpx;
+  height: 84rpx;
+  border-radius: 8rpx;
+  opacity: 1;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: column;
+  padding: 21rpx 0rpx;
+  gap: 0rpx 20rpx;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.001)), rgba(0, 0, 0, 0), linear-gradient(90deg, #4A2B3A 0%, #2B1827 100%);
+  box-shadow: 0rpx 8rpx 12rpx -8rpx rgba(0, 0, 0, 0.1), 0rpx 20rpx 30rpx -6rpx rgba(0, 0, 0, 0.1);
+}
+

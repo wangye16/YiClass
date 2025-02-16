@@ -4,7 +4,7 @@ import getBAseUrl from '@/utils/getBAseUrl'
 
 
 export default {
-  baseURL: `${getBAseUrl({})}/deyitang/api/`, // set default baseURL
+  baseURL: `${getBAseUrl()}/`, // set default baseURL
 
   apiClient(option, method = 'GET') {
     // if option.url is relative path,splicing baseURL
@@ -16,7 +16,9 @@ export default {
       ...option,
       method,
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'token':Taro.getStorageSync('token'),
+        // 'openid':Taro.getStorageSync('openid')
       }
     });
   },

@@ -1,8 +1,8 @@
-import { View, Text } from '@tarojs/components'
+import { View, Text,Input } from '@tarojs/components'
 import { useLoad ,useTabItemTap} from '@tarojs/taro'
 import ClassList from './components/ClassList'
 import {getClassListAPI} from '@/services/class'
-import './index.less'
+import './index.scss'
 import { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 
@@ -17,8 +17,8 @@ export default function Index () {
   const getClassList = async (props) => {
     try {
       const response = await getClassListAPI(props);
-      console.log("get response", response)
-      setClassListArr(response.data);
+      const result = response.data||{}
+      setClassListArr(result.data);
     } catch (error) {
       Taro.showToast({
         title: '请求失败',
@@ -36,6 +36,23 @@ export default function Index () {
 
   return (
     <View className='class-container'>
+      
+      <View className='search-container'>
+        {/* <AtSearchBar 
+        fixed
+        showActionButton={false}
+        value='123'
+        onChange={()=>{
+          console.log(123);
+        }}
+      /> */}
+        <Input
+          className='search-input'
+          placeholder={'搜索'}
+          placeholderClass='search-input-placeholder'
+        ></Input>
+      </View>
+      
       <ClassList
         list = {classListArr}
       />

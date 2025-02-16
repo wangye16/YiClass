@@ -1,0 +1,337 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[2]!./node_modules/.pnpm/less-loader@12.2.0_less@4.2.1_webpack@5.91.0_@swc+core@1.3.96_/node_modules/less-loader/dist/cjs.js!./src/pages/Class/ClassList/components/ClassItem/index.less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.class-item {
+  margin-bottom: 28rpx;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  height: 490rpx;
+  border-radius: 14rpx;
+  box-shadow: 0rpx 2rpx 4rpx -2rpx rgba(0, 0, 0, 0.1), 0rpx 2rpx 6rpx 0rpx rgba(0, 0, 0, 0.1);
+}
+.class-item .cover-img {
+  height: 280rpx;
+}
+.class-item .content-area {
+  padding: 28rpx;
+}
+.class-item .desc-text {
+  width: 100%;
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  color: #4b5563;
+  display: -webkit-box;
+  overflow: hidden;
+  /*隐藏溢出的文本  */
+  text-overflow: ellipsis;
+  word-break: break-all;
+  /*自动换行*/
+  /*从上到下自动排列子元素*/
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  /*显示的行数*/
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[2]!./node_modules/.pnpm/less-loader@12.2.0_less@4.2.1_webpack@5.91.0_@swc+core@1.3.96_/node_modules/less-loader/dist/cjs.js!./src/pages/Class/ClassList/components/ClassList/index.less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@7.1.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[0].use[1]!./node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.4.49_typescript@5.7.2_webpack@5.91.0_@swc+core@1.3.96_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[0].use[2]!./node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!./node_modules/.pnpm/sass-loader@14.2.1_sass@1.83.0_webpack@5.91.0_@swc+core@1.3.96_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[0].use[4]!./src/pages/Class/ClassList/index.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * Default variables
+ */
+/**
+ * Mixes a color with white. It's different from lighten()
+ *
+ * @param {color} $color
+ * @param {number (percentage)} $percent [The amout of white to be mixed in]
+ * @return {color}
+ *
+ * @example
+ *   .element {
+ *     background-color: tint(#6ecaa6 , 40%);
+ *   }
+ *
+ *   // CSS Output
+ *   .element {
+ *     background-color: #a8dfc9;
+ *   }
+ */
+/* The Color of O2Team Brand */
+/* Color */
+/* Color Palette */
+/* Text Color */
+/* Link */
+/* 背景色 */
+/* 边框颜色 */
+/* 图标颜色 */
+/* Border Radius */
+/* 透明度 */
+/* Font */
+/* Line Height */
+/* 水平间距 */
+/* 垂直间距 */
+/* 图标尺寸 */
+/* z-index */
+/* timing function */
+/**
+* CSS cubic-bezier timing functions
+* http://bourbon.io/docs/#timing-functions
+*/
+/**
+ * 组件变量
+ */
+/* Accordion */
+/* Activity Indicator */
+/* Avatar */
+/* Badge */
+/* Button */
+/* Float Button */
+/* Calendar */
+/* Card */
+/* Checkbox */
+/* Countdown */
+/* Curtain */
+/* Divider */
+/* Drawer */
+/* FloatLayout */
+/* Grid */
+/* ImagePicker */
+/* Indexes */
+/* InputNumber */
+/* Input */
+/* List */
+/* LoadMore */
+/* Loading */
+/* Message */
+/* Modal */
+/* NavBar */
+/* NoticeBar */
+/* Pagination */
+/* Progress */
+/* Radio */
+/* Range */
+/* Rate */
+/* SearchBar */
+/* SegmentedControl */
+/* Slider */
+/* Steps */
+/* SwipeAction */
+/* Switch */
+/* TabBar */
+/* Tabs */
+/* Tag */
+/* Textarea */
+/* Timeline */
+/**
+ * Mixins
+ */
+/* library */
+/**
+ * 元素居中定位
+ */
+/**
+ * @example scss
+ *
+ * .element {
+ *   @include clearfix;
+ * }
+ *
+ * // CSS Output
+ * .element::after {
+ *   clear: both;
+ *   content: '';
+ *   display: block;
+ * }
+ */
+/**
+ * 通用的遮罩
+ */
+/**
+ * Mixes a color with black. It's different from darken()
+ *
+ * @param {color} $color
+ * @param {number (percentage)} $percent [The amount of black to be mixed in]
+ * @return {color}
+ *
+ * @example
+ *   .element {
+ *     background-color: shade(#ffbb52, 60%);
+ *   }
+ *
+ *   // CSS Output
+ *   .element {
+ *     background-color: #664a20;
+ *   }
+ */
+/**
+ * Mixes a color with white. It's different from lighten()
+ *
+ * @param {color} $color
+ * @param {number (percentage)} $percent [The amout of white to be mixed in]
+ * @return {color}
+ *
+ * @example
+ *   .element {
+ *     background-color: tint(#6ecaa6 , 40%);
+ *   }
+ *
+ *   // CSS Output
+ *   .element {
+ *     background-color: #a8dfc9;
+ *   }
+ */
+/* Flex Item */
+/**
+ * 默认主题下 $color-border-light
+ */
+/**
+ * 点击态
+ */
+/**
+ * 禁止态
+ */
+/**
+ * 设置placeholder 颜色
+ */
+/**
+ * 默认主题下 $color-border-light
+ */
+.at-search-bar {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 36rpx;
+  background-color: #FFF;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  /* elements */
+  /* modifiers */
+}
+.at-search-bar::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  border: 0 solid rgb(214.4, 228.4, 238.9);
+  transform: scale(0.5);
+  border-bottom-width: 1PX;
+}
+.at-search-bar__input-cnt {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 30PX;
+  background-color: #F7F7F7;
+  border-radius: 15PX;
+  overflow: hidden;
+  display: flex;
+}
+.at-search-bar__placeholder-wrap {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12PX;
+  height: 30PX;
+  line-height: 0;
+  vertical-align: middle;
+  opacity: 1;
+  transition: flex 0.3s;
+}
+.at-search-bar__placeholder-wrap .at-icon {
+  color: #999;
+  font-size: 14PX;
+  flex-shrink: 0;
+}
+.at-search-bar__placeholder {
+  margin-left: 12PX;
+  color: #999;
+  font-size: 14PX;
+  flex-shrink: 0;
+}
+.at-search-bar__input {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30PX !important;
+  padding: 0 37PX;
+  color: #000;
+  font-size: 14PX !important;
+  text-align: left;
+  background-color: transparent;
+  transition: width 0.3s;
+  box-sizing: border-box;
+}
+.at-search-bar__clear {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 12PX;
+  height: 30PX;
+  width: 25PX;
+  color: #999;
+  font-size: 14PX;
+  line-height: 0;
+  vertical-align: middle;
+}
+.at-search-bar__action {
+  flex: none;
+  display: block;
+  margin-left: 10PX;
+  padding: 0 10PX;
+  height: 30PX;
+  color: #FFF;
+  font-size: 14PX;
+  line-height: 30PX;
+  border-radius: 4PX;
+  background-color: #6190E8;
+  transition: margin-right 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+.at-search-bar--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
+}
+.class-container {
+  font-family: Roboto;
+}
+.class-container .search-container {
+  width: 100%;
+  height: 100rpx;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+.class-container .search-input {
+  margin: 40rpx auto;
+  padding-left: 40rpx;
+  width: 694rpx;
+  height: 64rpx;
+  background: #F3F4F6;
+  border-radius: 32rpx;
+  -webkit-border-radius: 32rpx;
+  -moz-border-radius: 32rpx;
+  -ms-border-radius: 32rpx;
+  -o-border-radius: 32rpx;
+}
+.class-container .search-input-placeholder {
+  display: inline-block;
+  margin: 0 auto;
+  color: #6B7280;
+}

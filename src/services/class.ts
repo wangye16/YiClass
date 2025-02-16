@@ -1,14 +1,20 @@
 import apiClient from './apiClient'
-const prefix = 'class'
 
-export default function requestHelloWorld() {
-  return apiClient.get('/')
-}
 const getClassListAPI = (params:any)=>{
-    return apiClient.get(`${prefix}/list`,params)
+    return apiClient.get(`api/courses`,params)
+}
+
+const getClassDescAPI = (classId:string)=>{
+    return apiClient.get(`api/course-details/${classId}`,{})
+}
+
+const postSessionProgress = (params)=>{
+    return apiClient.post(`api/course-progress`,params)
 }
 
 export 
 {
-    getClassListAPI
+    getClassListAPI,
+    getClassDescAPI,
+    postSessionProgress
 }
