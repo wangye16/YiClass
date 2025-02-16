@@ -9,7 +9,6 @@ export default function Index({ classDesc }) {
 
   const onPayTap=async ()=>{
     setPayButtonLoading(true)
-    // ! todo 支付逻辑
     const paymentParams = await pay({
       openid:Taro.getStorageSync('openid'),
       orderNumber:'order123456',
@@ -29,6 +28,7 @@ export default function Index({ classDesc }) {
         console.error("支付失败:", err);
       },
     });
+    setPayButtonLoading(false)
   }
 
   // 底部支付状态信息的渲染函数

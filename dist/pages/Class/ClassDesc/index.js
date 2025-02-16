@@ -201,7 +201,6 @@ function Index(_ref) {
   const [payButtonLoading, setPayButtonLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const onPayTap = async () => {
     setPayButtonLoading(true);
-    // ! todo 支付逻辑
     const paymentParams = await (0,_services_pay__WEBPACK_IMPORTED_MODULE_2__.pay)({
       openid: _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().getStorageSync('openid'),
       orderNumber: 'order123456',
@@ -221,6 +220,7 @@ function Index(_ref) {
         console.error("支付失败:", err);
       }
     });
+    setPayButtonLoading(false);
   };
 
   // 底部支付状态信息的渲染函数
