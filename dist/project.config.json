@@ -15,8 +15,10 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "minifyWXML": true,
+    "bigPackageSizeSupport": false,
     "minifyWXSS": true,
-    "minifyWXML": false
+    "uglifyFileName": false
   },
   "compileType": "miniprogram",
   "libVersion": "3.6.6",

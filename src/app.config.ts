@@ -19,12 +19,7 @@ const tabPageArr = [{
 }]
 
 const allPageArr = [
-  {
-    pagePath: 'pages/Login/index',
-    text: '登录',
-    // iconPath:'./assets/icons/book_gray.png',
-    // selectedIconPath: "./assets/icons/book.png",
-  },
+  
   
   ...tabPageArr,
   {
@@ -33,11 +28,17 @@ const allPageArr = [
     iconPath:'./assets/icons/book_gray.png',
     selectedIconPath: "./assets/icons/book.png",
   },
-  
+  {
+    pagePath: 'pages/Login/index',
+    text: '登录',
+    // iconPath:'./assets/icons/book_gray.png',
+    // selectedIconPath: "./assets/icons/book.png",
+  },
 ]
 
 export default defineAppConfig({
   pages: allPageArr.map((i)=>(i.pagePath)),
+  lazyCodeLoading: "requiredComponents",
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',

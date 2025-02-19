@@ -10,32 +10,20 @@
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Index; }
 /* harmony export */ });
-/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/.pnpm/@tarojs+plugin-platform-weapp@4.0.7_@tarojs+service@4.0.7_@tarojs+shared@4.0.7/node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
+/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/.pnpm/@tarojs+plugin-platform-weapp@4.0.7_@tarojs+service@4.0.7_@tarojs+shared@4.0.7/node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tarojs/taro */ "webpack/container/remote/@tarojs/taro");
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _taroify_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @taroify/core */ "webpack/container/remote/@taroify/core");
-/* harmony import */ var _taroify_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_taroify_core__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _services_home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/services/home */ "./src/services/home.ts");
-/* harmony import */ var _assets_imgs_teacherAvatar_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/assets/imgs/teacherAvatar.jpg */ "./src/assets/imgs/teacherAvatar.jpg");
-/* harmony import */ var _assets_icons_jiangbei_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/assets/icons/jiangbei.png */ "./src/assets/icons/jiangbei.png");
-/* harmony import */ var _assets_icons_jiangpai_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/assets/icons/jiangpai.png */ "./src/assets/icons/jiangpai.png");
-/* harmony import */ var _assets_icons_xingxing_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/assets/icons/xingxing.png */ "./src/assets/icons/xingxing.png");
-/* harmony import */ var _assets_icons_huangxingxing_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/assets/icons/huangxingxing.png */ "./src/assets/icons/huangxingxing.png");
-/* harmony import */ var _components_introductionTxt__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/introductionTxt */ "./src/pages/HomePage/components/introductionTxt/index.tsx");
-/* harmony import */ var _assets_imgs_book1_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/assets/imgs/book1.png */ "./src/assets/imgs/book1.png");
-/* harmony import */ var _assets_imgs_book3_jpeg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/assets/imgs/book3.jpeg */ "./src/assets/imgs/book3.jpeg");
-/* harmony import */ var _assets_imgs_swiper1_jpg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/assets/imgs/swiper1.jpg */ "./src/assets/imgs/swiper1.jpg");
-/* harmony import */ var _assets_imgs_swiper2_jpg__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/assets/imgs/swiper2.jpg */ "./src/assets/imgs/swiper2.jpg");
-/* harmony import */ var _assets_imgs_swiper3_jpg__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/assets/imgs/swiper3.jpg */ "./src/assets/imgs/swiper3.jpg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__);
-
-
-
-
-
+/* harmony import */ var _services_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/services/home */ "./src/services/home.ts");
+/* harmony import */ var _assets_const__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/assets/const */ "./src/assets/const.ts");
+/* harmony import */ var _assets_icons_jiangbei_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/assets/icons/jiangbei.png */ "./src/assets/icons/jiangbei.png");
+/* harmony import */ var _assets_icons_jiangpai_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/assets/icons/jiangpai.png */ "./src/assets/icons/jiangpai.png");
+/* harmony import */ var _assets_icons_xingxing_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/assets/icons/xingxing.png */ "./src/assets/icons/xingxing.png");
+/* harmony import */ var _assets_icons_huangxingxing_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/assets/icons/huangxingxing.png */ "./src/assets/icons/huangxingxing.png");
+/* harmony import */ var _components_introductionTxt__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/introductionTxt */ "./src/pages/HomePage/components/introductionTxt/index.tsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -53,45 +41,47 @@
 function Index() {
   const [teacherInfo, setTeacherInfo] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({});
   const achievementObjArr = [{
-    icon: _assets_icons_huangxingxing_png__WEBPACK_IMPORTED_MODULE_8__,
+    icon: _assets_icons_huangxingxing_png__WEBPACK_IMPORTED_MODULE_6__,
     lineOneText: '九宫门三元风水',
     lineTwoText: '第37代传承弟子'
   }, {
-    icon: _assets_icons_jiangbei_png__WEBPACK_IMPORTED_MODULE_5__,
+    icon: _assets_icons_jiangbei_png__WEBPACK_IMPORTED_MODULE_3__,
     lineOneText: '中国管理科学学会',
     lineTwoText: '传统文化讲师'
   }, {
-    icon: _assets_icons_xingxing_png__WEBPACK_IMPORTED_MODULE_7__,
+    icon: _assets_icons_xingxing_png__WEBPACK_IMPORTED_MODULE_5__,
     lineOneText: '北京师范大学',
     lineTwoText: '中华优秀文化师资'
   }, {
-    icon: _assets_icons_jiangpai_png__WEBPACK_IMPORTED_MODULE_6__,
+    icon: _assets_icons_jiangpai_png__WEBPACK_IMPORTED_MODULE_4__,
     lineOneText: '易经研究院',
     lineTwoText: '学术委员会委员'
   }];
-  const booksObjArr = [{
-    CoverImage: _assets_imgs_book1_png__WEBPACK_IMPORTED_MODULE_10__,
-    bookName: '《易经智慧与现代生活》',
-    publicDept: '中华书局'
-  }, {
-    CoverImage: _assets_imgs_book3_jpeg__WEBPACK_IMPORTED_MODULE_11__,
-    bookName: '《易经智慧与现代生活11111111111》',
-    publicDept: '中华书局'
-  }, {
-    CoverImage: _assets_imgs_book1_png__WEBPACK_IMPORTED_MODULE_10__,
-    bookName: '《易经智慧与现代生活33333333333》',
-    publicDept: '中华书局111111111111111'
-  }, {
-    CoverImage: _assets_imgs_book1_png__WEBPACK_IMPORTED_MODULE_10__,
-    bookName: '《易经智慧与现代生活》',
-    publicDept: '中华书局'
-  }];
+
+  // const booksObjArr=[{
+  //   CoverImage:book1,
+  //   bookName:'《易经智慧与现代生活》',
+  //   publicDept:'中华书局'
+  // },{
+  //   CoverImage:book3,
+  //   bookName:'《易经智慧与现代生活11111111111》',
+  //   publicDept:'中华书局'
+  // },{
+  //   CoverImage:book1,
+  //   bookName:'《易经智慧与现代生活33333333333》',
+  //   publicDept:'中华书局111111111111111'
+  // },{
+  //   CoverImage:book1,
+  //   bookName:'《易经智慧与现代生活》',
+  //   publicDept:'中华书局'
+  // }]
+
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {
     // getTeacherInfoApi();
   });
   const getTeacherInfoApi = async () => {
     try {
-      const response = await (0,_services_home__WEBPACK_IMPORTED_MODULE_3__.getTeacherInfo)({
+      const response = await (0,_services_home__WEBPACK_IMPORTED_MODULE_2__.getTeacherInfo)({
         teacherId: 1
       });
       const {
@@ -108,119 +98,119 @@ function Index() {
       console.log("Error sending chat message:", error);
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
     className: "home-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "title-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Image, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
         style: {
           display: "inline-block",
           width: 98,
           height: 98,
           borderRadius: 7
         },
-        src: _assets_imgs_teacherAvatar_jpg__WEBPACK_IMPORTED_MODULE_4__
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+        src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.teacherAvatar
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         style: {
           marginRight: 14
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
           className: "title-line1",
           children: "\u4ED8\u56FD\u519B \u5927\u5E08"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
           className: "title-line2",
           children: "\u9AD8\u7EA7\u98CE\u6C34\u582A\u8206\u5E08"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
           className: "title-line3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
             className: "title-tag",
             children: " \u5468\u6613\u516B\u5366 "
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
             className: "title-tag",
             children: " \u547D\u7406\u98CE\u6C34 "
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
             className: "title-tag",
             children: " \u5947\u95E8\u9041\u7532 "
           })]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "tags-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         className: "tags-tag",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
           className: "tags-tag-line1",
           children: "30+"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
           className: "tags-tag-line2",
           children: "\u6613\u7ECF\u8457\u4F5C"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         className: "tags-tag",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
           className: "tags-tag-line1",
           children: "20\u5E74"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
           className: "tags-tag-line2",
           children: "\u7814\u7A76\u7ECF\u9A8C"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         className: "tags-tag",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
           className: "tags-tag-line1",
           children: "20K+"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
           className: "tags-tag-line2",
           children: "\u54A8\u8BE2\u7ECF\u9A8C"
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "swiper-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Swiper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Swiper, {
         style: {
           height: '100%'
         },
         autoplay: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.SwiperItem, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Image, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
             style: {
               width: '100%',
               height: '100%'
             },
-            src: _assets_imgs_swiper1_jpg__WEBPACK_IMPORTED_MODULE_12__
+            src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.swiper1
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.SwiperItem, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Image, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
             style: {
               width: '100%',
               height: '100%'
             },
-            src: _assets_imgs_swiper2_jpg__WEBPACK_IMPORTED_MODULE_13__
+            src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.swiper2
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.SwiperItem, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Image, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
             style: {
               width: '100%',
               height: '100%'
             },
-            src: _assets_imgs_swiper3_jpg__WEBPACK_IMPORTED_MODULE_14__
+            src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.swiper3
           })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "achievement-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         className: "achievement-title",
         children: "\u8363\u8A89\u6210\u5C31"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         className: "achievement-item-container",
-        children: achievementObjArr.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+        children: achievementObjArr.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
           className: "achievement-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
             style: {
               margin: 3
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Image, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
               src: item.icon,
               style: {
                 width: 16,
@@ -228,7 +218,7 @@ function Index() {
                 marginRight: 6,
                 verticalAlign: 'middle'
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.Text, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
               style: {
                 verticalAlign: 'middle',
                 fontSize: 12,
@@ -237,7 +227,7 @@ function Index() {
               },
               children: item.lineOneText
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
             style: {
               fontSize: 10,
               marginLeft: 26,
@@ -248,53 +238,12 @@ function Index() {
           })]
         }))
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "introduction-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
         className: "introduction-title",
         children: "\u5927\u5E08\u7B80\u4ECB"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_introductionTxt__WEBPACK_IMPORTED_MODULE_9__["default"], {})]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
-      className: "books-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
-        className: "books-title",
-        children: "\u4EE3\u8868\u8457\u4F5C"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.ScrollView, {
-        scrollX: true,
-        style: {
-          width: '100%',
-          whiteSpace: 'nowrap'
-        },
-        children: booksObjArr.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
-          className: "books-item",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_16__.View, {
-            style: {
-              width: '100%',
-              height: 140,
-              backgroundImage: `url(${item.CoverImage})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center'
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_taroify_core__WEBPACK_IMPORTED_MODULE_2__.TextEllipsis, {
-            style: {
-              marginTop: 12,
-              fontSize: 12,
-              fontWeight: 500,
-              color: '#000'
-            },
-            content: item.bookName
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_taroify_core__WEBPACK_IMPORTED_MODULE_2__.TextEllipsis, {
-            style: {
-              marginTop: 7,
-              fontSize: 10,
-              color: '#4B5563',
-              textAlign: 'center'
-            },
-            content: item.publicDept
-          })]
-        }))
-      })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_introductionTxt__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
     })]
   });
 }
@@ -450,66 +399,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABz
 /***/ (function(module) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAYAAACcuBHKAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAAHwSURBVFiFxdXBVeMwEAbgf4y5W28LWKeCeDsQxNyhApIKYCsAKtgSSAm5Yz/UAdkOTAE8m7us2UOyOARJsYPj/EdHlr43kWcI30g5mTyC6BLMC5Hns333CfZ98S1N70E0BRCBaFqm6e2giFLKKABuPj1kvnEsPwzChOEtgOjTQ6K4PD+fDoKwVqGB3A2CsFahQexVjU4IbxUaSOdqdEJ4q9AgOlejE2JnFRpIp2qQ78fy4iIBcwSiMYxJ1n2hbRYgUjDmFXW9FEoVXkQpZYyTk8QQJQEwBhADSDoc2CYVmCsACkQVmJcIgr/i6WlJ6073p+cDu+Qh+E6n6yXM1wGIqqMiiIoAWl+BuTgKgLmA1rPNi/kMonhQQF2fCaWKj090UMgGANjqE4NAtgBfEAeHWABWxMEgDoAT8QEJwxfsGlhto/XI1bp9A6zqDdDsZ40bcXoa9wgAwtA5i9wIY8a9Ioic+7kRRP1OUea4O2I1zvvMHn8HII+KKKWM0ObLWA2+BTw3fyPRet92CN9N3gDMUddnIsuuoPXIAA87MY597QjPTQbzHFqPRJ7P/jcfoVT1I8vuofUvMM897/5sjzDmtc3h2xFKFSLPZ9B6BEBZlrzb3nO37cnkEYAEUQGtnQf7UqapBHCH1aWciyz7bVv3D4LU3U2zt5DMAAAAAElFTkSuQmCC";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/book1.png":
-/*!***********************************!*\
-  !*** ./src/assets/imgs/book1.png ***!
-  \***********************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/book1.png";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/book3.jpeg":
-/*!************************************!*\
-  !*** ./src/assets/imgs/book3.jpeg ***!
-  \************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/book3.jpeg";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/swiper1.jpg":
-/*!*************************************!*\
-  !*** ./src/assets/imgs/swiper1.jpg ***!
-  \*************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/swiper1.jpg";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/swiper2.jpg":
-/*!*************************************!*\
-  !*** ./src/assets/imgs/swiper2.jpg ***!
-  \*************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/swiper2.jpg";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/swiper3.jpg":
-/*!*************************************!*\
-  !*** ./src/assets/imgs/swiper3.jpg ***!
-  \*************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/swiper3.jpg";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/teacherAvatar.jpg":
-/*!*******************************************!*\
-  !*** ./src/assets/imgs/teacherAvatar.jpg ***!
-  \*******************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/teacherAvatar.jpg";
 
 /***/ })
 

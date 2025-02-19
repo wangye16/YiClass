@@ -3,18 +3,15 @@ import { useReady } from "@tarojs/taro";
 import { useState } from "react";
 import { TextEllipsis } from "@taroify/core"
 import { getTeacherInfo } from "@/services/home";
-import avatar from "@/assets/imgs/teacherAvatar.jpg";
+import {teacherAvatar as avatar} from "@/assets/const";
 import jiangbei from '@/assets/icons/jiangbei.png'
 import jiangpai from '@/assets/icons/jiangpai.png'
 import xingxing from '@/assets/icons/xingxing.png'
 import huangxingxing from '@/assets/icons/huangxingxing.png'
 import IntroductionTxt from './components/introductionTxt'
-import book2 from '@/assets/imgs/book2.png'
-import book1 from '@/assets/imgs/book1.png'
-import book3 from '@/assets/imgs/book3.jpeg'
-import swiper1 from '@/assets/imgs/swiper1.jpg'
-import swiper2 from '@/assets/imgs/swiper2.jpg'
-import swiper3 from '@/assets/imgs/swiper3.jpg'
+
+import {swiper1,swiper2,swiper3} from '@/assets/const'
+
 import Taro from "@tarojs/taro";
 import "./index.less";
 
@@ -38,23 +35,23 @@ export default function Index() {
     lineTwoText:'学术委员会委员',
   }]
 
-  const booksObjArr=[{
-    CoverImage:book1,
-    bookName:'《易经智慧与现代生活》',
-    publicDept:'中华书局'
-  },{
-    CoverImage:book3,
-    bookName:'《易经智慧与现代生活11111111111》',
-    publicDept:'中华书局'
-  },{
-    CoverImage:book1,
-    bookName:'《易经智慧与现代生活33333333333》',
-    publicDept:'中华书局111111111111111'
-  },{
-    CoverImage:book1,
-    bookName:'《易经智慧与现代生活》',
-    publicDept:'中华书局'
-  }]
+  // const booksObjArr=[{
+  //   CoverImage:book1,
+  //   bookName:'《易经智慧与现代生活》',
+  //   publicDept:'中华书局'
+  // },{
+  //   CoverImage:book3,
+  //   bookName:'《易经智慧与现代生活11111111111》',
+  //   publicDept:'中华书局'
+  // },{
+  //   CoverImage:book1,
+  //   bookName:'《易经智慧与现代生活33333333333》',
+  //   publicDept:'中华书局111111111111111'
+  // },{
+  //   CoverImage:book1,
+  //   bookName:'《易经智慧与现代生活》',
+  //   publicDept:'中华书局'
+  // }]
 
   useReady(() => {
     // getTeacherInfoApi();
@@ -143,7 +140,7 @@ export default function Index() {
         <IntroductionTxt />
       </View>
 
-      <View className="books-container">
+      {/* <View className="books-container">
         <View className="books-title">代表著作</View>
             <ScrollView scrollX style={{width:'100%',whiteSpace:'nowrap'}}>
               {booksObjArr.map(((item)=>(<View className="books-item">
@@ -152,7 +149,7 @@ export default function Index() {
                 <TextEllipsis style={{marginTop:7,fontSize:10,color:'#4B5563',textAlign:'center'}} content={item.publicDept}></TextEllipsis>
               </View>)))}
             </ScrollView>
-      </View>
+      </View> */}
     </View>
   );
 }

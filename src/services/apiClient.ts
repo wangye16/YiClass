@@ -12,13 +12,20 @@ export default {
       option.url = this.baseURL + option.url;
     }
 
+
     return Taro.request({
       ...option,
       method,
       header: {
         'content-type': 'application/json',
-        'token':Taro.getStorageSync('token'),
+        'Authorization':'Bearer '+Taro.getStorageSync('token'),
         // 'openid':Taro.getStorageSync('openid')
+      },
+      complete:(res)=>{
+        console.log('aaa',res.statusCode);
+        if (res.statusCode==401||res.statusCode==403||!res.statusCode) {
+          Taro.navigateTo({url:'/pages/Login/index'})
+        }
       }
     });
   },

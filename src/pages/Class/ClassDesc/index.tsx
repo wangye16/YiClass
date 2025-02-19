@@ -5,7 +5,7 @@ import studentImg from "@/assets/icons/student.png";
 import CustomVideo from "./components/VideoComp";
 import SessionList from "./components/SessionList";
 import PaymentStatusBar from "./components/PaymentStatusBar";
-import defaultImg from "@/assets/imgs/defaultImg.png";
+import {defaultImg} from "@/assets/const";
 import "./index.less";
 import { useEffect, useState } from "react";
 import Taro from "@tarojs/taro";

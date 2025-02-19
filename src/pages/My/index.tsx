@@ -2,7 +2,7 @@ import { View, Image, ScrollView, Button } from "@tarojs/components";
 import { useReady } from "@tarojs/taro";
 import { useState } from "react";
 import Empty from '@/components/Empty'
-import MyBackgroundImg from "@/assets/imgs/my_background1.png";
+import {my_background1 as MyBackgroundImg} from "@/assets/const";
 import { getMyDesc } from "@/services/my";
 import Taro from "@tarojs/taro";
 import "./index.less";
@@ -86,7 +86,7 @@ export default function Index() {
           alignContent: "center",
         }}
       >
-        {1 ? (
+        {!Taro.getStorageSync('avatarUrl') ? (
           <>
             <View
               style={{
@@ -113,7 +113,9 @@ export default function Index() {
                   height: 70,
                   border: "2px solid #FFFFFF",
                   borderRadius: "50%",
-                  backgroundImage: `url(${myDesc.userInfo?.avatar})`,
+                  backgroundImage: `url(${Taro.getStorageSync('avatarUrl')})`,
+                  backgroundRepeat:'no-repeat',
+                  backgroundPosition:'center'
                 }}
               ></View>
               <View
@@ -130,7 +132,7 @@ export default function Index() {
                   textAlign: "center",
                 }}
               >
-                {myDesc.userInfo?.userName}
+                {Taro.getStorageSync('nickName')}
               </View>
             </View>
           </>

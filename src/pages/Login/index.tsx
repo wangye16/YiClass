@@ -1,4 +1,3 @@
-import { FaWeixin } from "react-icons/fa";
 import { View, Text,Image, ScrollView, Button,} from "@tarojs/components";
 import wechat from '@/assets/icons/wechat-fill.png'
 import Taro from "@tarojs/taro";

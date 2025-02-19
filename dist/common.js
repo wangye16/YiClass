@@ -1,6 +1,30 @@
 "use strict";
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["common"],{
 
+/***/ "./src/assets/const.ts":
+/*!*****************************!*\
+  !*** ./src/assets/const.ts ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   defaultImg: function() { return /* binding */ defaultImg; },
+/* harmony export */   my_background1: function() { return /* binding */ my_background1; },
+/* harmony export */   swiper1: function() { return /* binding */ swiper1; },
+/* harmony export */   swiper2: function() { return /* binding */ swiper2; },
+/* harmony export */   swiper3: function() { return /* binding */ swiper3; },
+/* harmony export */   teacherAvatar: function() { return /* binding */ teacherAvatar; }
+/* harmony export */ });
+const defaultImg = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/defaultImg.png';
+const my_background1 = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/my_background1.png';
+const swiper1 = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/swiper1.jpg';
+const swiper2 = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/swiper2.jpg';
+const swiper3 = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/swiper3.jpg';
+const teacherAvatar = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/teacherAvatar.jpg';
+
+
+/***/ }),
+
 /***/ "./src/services/apiClient.ts":
 /*!***********************************!*\
   !*** ./src/services/apiClient.ts ***!
@@ -28,8 +52,16 @@
       method,
       header: {
         'content-type': 'application/json',
-        'token': _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('token')
+        'Authorization': 'Bearer ' + _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('token')
         // 'openid':Taro.getStorageSync('openid')
+      },
+      complete: res => {
+        console.log('aaa', res.statusCode);
+        if (res.statusCode == 401 || res.statusCode == 403 || !res.statusCode) {
+          _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().navigateTo({
+            url: '/pages/Login/index'
+          });
+        }
       }
     });
   },
@@ -86,7 +118,9 @@ const getBaseUrl = () => {
   let BASE_URL = '';
   if (true) {
     //开发环境 - 根据请求不同返回不同的BASE_URL
-    BASE_URL = 'http://smgiji.cloud.natool.cn:80';
+    BASE_URL = 'http://smgiji.cloud.natool.cn';
+    // BASE_URL = 'http://60.205.91.224:8080'
+    // BASE_URL = 'http://fsdyt.cn'
   } else {}
   return BASE_URL;
 };
@@ -101,16 +135,6 @@ const getBaseUrl = () => {
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/icons/student.png";
-
-/***/ }),
-
-/***/ "./src/assets/imgs/defaultImg.png":
-/*!****************************************!*\
-  !*** ./src/assets/imgs/defaultImg.png ***!
-  \****************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/imgs/defaultImg.png";
 
 /***/ })
 

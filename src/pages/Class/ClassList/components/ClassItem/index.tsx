@@ -1,6 +1,6 @@
 import { View, Image,Text } from "@tarojs/components";
 import Taro from '@tarojs/taro'
-import defaultImg from "@/assets/imgs/defaultImg.png";
+import {defaultImg} from "@/assets/const";
 import studentImg from "@/assets/icons/student.png";
 import "./index.less";
 
@@ -41,7 +41,8 @@ export default function Index({ classInfo }) {
         className="cover-img"
       >
         <Image
-          src={coverImage || defaultImg}
+          mode="aspectFit"
+          src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || defaultImg}
           lazyLoad
           style={{
             width: "100%",

@@ -201,11 +201,13 @@
 /******/ 				"webpack/container/remote/@tarojs/plugin-framework-react/dist/runtime",
 /******/ 				"webpack/container/remote/react-dom"
 /******/ 			],
+/******/ 			"pages/My/index": [
+/******/ 				"webpack/container/remote/@taroify/core"
+/******/ 			],
 /******/ 			"common": [
 /******/ 				"webpack/container/remote/@tarojs/runtime",
 /******/ 				"webpack/container/remote/@tarojs/taro",
 /******/ 				"webpack/container/remote/react",
-/******/ 				"webpack/container/remote/@taroify/core",
 /******/ 				"webpack/container/remote/react/jsx-runtime"
 /******/ 			]
 /******/ 		};
@@ -225,6 +227,11 @@
 /******/ 				"./react-dom",
 /******/ 				null
 /******/ 			],
+/******/ 			"webpack/container/remote/@taroify/core": [
+/******/ 				"default",
+/******/ 				"./@taroify/core",
+/******/ 				null
+/******/ 			],
 /******/ 			"webpack/container/remote/@tarojs/runtime": [
 /******/ 				"default",
 /******/ 				"./@tarojs/runtime",
@@ -238,11 +245,6 @@
 /******/ 			"webpack/container/remote/react": [
 /******/ 				"default",
 /******/ 				"./react",
-/******/ 				null
-/******/ 			],
-/******/ 			"webpack/container/remote/@taroify/core": [
-/******/ 				"default",
-/******/ 				"./@taroify/core",
 /******/ 				null
 /******/ 			],
 /******/ 			"webpack/container/remote/react/jsx-runtime": [

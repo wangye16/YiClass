@@ -10,7 +10,7 @@
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Index; }
 /* harmony export */ });
-/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/.pnpm/@tarojs+plugin-platform-weapp@4.0.7_@tarojs+service@4.0.7_@tarojs+shared@4.0.7/node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
+/* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/.pnpm/@tarojs+plugin-platform-weapp@4.0.7_@tarojs+service@4.0.7_@tarojs+shared@4.0.7/node_modules/@tarojs/plugin-platform-weapp/dist/components-react.js");
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tarojs/taro */ "webpack/container/remote/@tarojs/taro");
 /* harmony import */ var _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/services/class */ "./src/services/class.ts");
@@ -18,11 +18,11 @@
 /* harmony import */ var _components_VideoComp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/VideoComp */ "./src/pages/Class/ClassDesc/components/VideoComp/index.tsx");
 /* harmony import */ var _components_SessionList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/SessionList */ "./src/pages/Class/ClassDesc/components/SessionList/index.tsx");
 /* harmony import */ var _components_PaymentStatusBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/PaymentStatusBar */ "./src/pages/Class/ClassDesc/components/PaymentStatusBar/index.tsx");
-/* harmony import */ var _assets_imgs_defaultImg_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/assets/imgs/defaultImg.png */ "./src/assets/imgs/defaultImg.png");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _assets_const__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/assets/const */ "./src/assets/const.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "webpack/container/remote/react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "webpack/container/remote/react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -42,8 +42,8 @@ function Index() {
   const {
     classId
   } = urlParams;
-  const [classDesc, setClassDesc] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)({});
-  const [curSessionObj, setCurSessionObj] = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)({});
+  const [classDesc, setClassDesc] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
+  const [curSessionObj, setCurSessionObj] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {
     getClassDesc();
   });
@@ -87,16 +87,16 @@ function Index() {
       console.log("Error sending chat message:", error);
     }
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_7__.useEffect)(() => {
+  (0,react__WEBPACK_IMPORTED_MODULE_6__.useEffect)(() => {
     const learningSessionObj = classDesc?.context?.find(i => i.sessionId == classDesc.learningSession) || {};
     setCurSessionObj(learningSessionObj);
   }, [classDesc.learningSession]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
     className: "class-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
       className: "class-video-container",
-      children: classDesc?.paymentStatus == 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
-        src: classDesc?.coverImage || _assets_imgs_defaultImg_png__WEBPACK_IMPORTED_MODULE_6__,
+      children: classDesc?.paymentStatus == 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
+        src: classDesc?.coverImage || _assets_const__WEBPACK_IMPORTED_MODULE_9__.defaultImg,
         lazyLoad: true,
         style: {
           width: "100%",
@@ -104,24 +104,24 @@ function Index() {
           background: "#fff",
           objectFit: "contain"
         }
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_VideoComp__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_VideoComp__WEBPACK_IMPORTED_MODULE_3__["default"], {
         desc: classDesc,
         curSessionObj: curSessionObj,
         sessionId: curSessionObj.sessionId || classDesc.learningSession
       }, curSessionObj.sessionId)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
       className: "class-desc-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
         className: "class-name-text",
         children: classDesc?.className
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
         style: {
           fontSize: 12,
           lineHeight: "18px",
           color: "#4B5563",
           marginTop: 6
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
           src: _assets_icons_student_png__WEBPACK_IMPORTED_MODULE_2__,
           style: {
             width: 14,
@@ -129,21 +129,21 @@ function Index() {
             marginRight: 3,
             verticalAlign: "middle"
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
           style: {
             verticalAlign: "middle"
           },
           children: [classDesc?.studyNum, "\u4EBA\u5B66\u4E60"]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
         className: "class-desc-text",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Text, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
           style: {
             lineHeight: "21px",
             color: "#000"
           },
           children: "\u8BFE\u7A0B\u7B80\u4ECB"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.ScrollView, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.ScrollView, {
           scrollY: true,
           style: {
             height: 150,
@@ -154,12 +154,12 @@ function Index() {
           },
           children: classDesc.description
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_SessionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_SessionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
         curSessionId: curSessionObj.sessionId,
         classDesc: classDesc,
         setCurSessionObj: setCurSessionObj
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_PaymentStatusBar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_PaymentStatusBar__WEBPACK_IMPORTED_MODULE_5__["default"], {
       classDesc: classDesc
     })]
   });
