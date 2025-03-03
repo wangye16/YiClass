@@ -45,7 +45,7 @@
   font-family: Roboto;
   font-size: 42rpx;
   font-weight: bold;
-  line-height: 56rpx;
+  line-height: 48rpx;
   letter-spacing: 0rpx;
 }
 .class-container .class-desc-text {

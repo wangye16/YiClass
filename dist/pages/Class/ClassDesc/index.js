@@ -146,7 +146,7 @@ function Index() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.ScrollView, {
           scrollY: true,
           style: {
-            height: 150,
+            height: 120,
             marginTop: 6,
             color: "#4B5563",
             fontSize: 12,

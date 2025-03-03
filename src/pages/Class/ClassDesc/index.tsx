@@ -118,7 +118,7 @@ export default function Index() {
           <ScrollView
             scrollY
             style={{
-              height:150,
+              height:120,
               marginTop: 6,
               color: "#4B5563",
               fontSize: 12,

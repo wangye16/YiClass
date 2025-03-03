@@ -12,18 +12,19 @@ export default {
       option.url = this.baseURL + option.url;
     }
 
-
+    let header:any = {
+      'content-type': 'application/json',
+    }
+    if (Taro.getStorageSync('token')) {
+      header.Authorization = 'Bearer '+Taro.getStorageSync('token')
+    }
     return Taro.request({
       ...option,
       method,
-      header: {
-        'content-type': 'application/json',
-        'Authorization':'Bearer '+Taro.getStorageSync('token'),
-        // 'openid':Taro.getStorageSync('openid')
-      },
+      header:header,
       complete:(res)=>{
         console.log('aaa',res.statusCode);
-        if (res.statusCode==401||res.statusCode==403||!res.statusCode) {
+        if (res.statusCode==401||res.statusCode==403) {
           Taro.navigateTo({url:'/pages/Login/index'})
         }
       }

@@ -47,17 +47,19 @@ const teacherAvatar = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/publ
     if (!option.url.startsWith('http')) {
       option.url = this.baseURL + option.url;
     }
+    let header = {
+      'content-type': 'application/json'
+    };
+    if (_tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('token')) {
+      header.Authorization = 'Bearer ' + _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('token');
+    }
     return _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().request({
       ...option,
       method,
-      header: {
-        'content-type': 'application/json',
-        'Authorization': 'Bearer ' + _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('token')
-        // 'openid':Taro.getStorageSync('openid')
-      },
+      header: header,
       complete: res => {
         console.log('aaa', res.statusCode);
-        if (res.statusCode == 401 || res.statusCode == 403 || !res.statusCode) {
+        if (res.statusCode == 401 || res.statusCode == 403) {
           _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().navigateTo({
             url: '/pages/Login/index'
           });
@@ -118,8 +120,8 @@ const getBaseUrl = () => {
   let BASE_URL = '';
   if (true) {
     //开发环境 - 根据请求不同返回不同的BASE_URL
-    BASE_URL = 'http://smgiji.cloud.natool.cn';
-    // BASE_URL = 'http://60.205.91.224:8080'
+    // BASE_URL = 'http://smgiji.cloud.natool.cn'
+    BASE_URL = 'http://60.205.91.224:8080';
     // BASE_URL = 'http://fsdyt.cn'
   } else {}
   return BASE_URL;
