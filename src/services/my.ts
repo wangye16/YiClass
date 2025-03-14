@@ -1,11 +1,10 @@
 import apiClient from './apiClient'
-const prefix = 'my'
 
-const getMyDesc = (params:any)=>{
-    return apiClient.get(`${prefix}/desc`,params)
+const getMyClass = (params:any)=>{
+    return apiClient.get(`api/my-courses`,params)
 }
 
 export 
 {
-    getMyDesc
+    getMyClass
 }

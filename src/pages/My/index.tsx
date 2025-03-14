@@ -1,24 +1,34 @@
 import { View, Image, ScrollView, Button } from "@tarojs/components";
-import { useReady } from "@tarojs/taro";
+import { useDidShow } from "@tarojs/taro";
 import { useState } from "react";
 import Empty from '@/components/Empty'
 import {my_background1 as MyBackgroundImg} from "@/assets/const";
-import { getMyDesc } from "@/services/my";
+import { getMyClass } from "@/services/my";
+import {defaultImg} from "@/assets/const";
 import Taro from "@tarojs/taro";
 import "./index.less";
 
 export default function Index() {
-  const [myDesc, setMyDesc] = useState<any>({});
+  const [myClass, setMyClass] = useState<any>([]);
+  const [myCertificate, setMyCertificate] = useState<any>([]);
+  
 
-  useReady(() => {
+  useDidShow(() => {
     getClassDesc();
   });
 
+  const unique = (arr)=> {
+    const res = new Map();
+    return arr.filter((a) => !res.has(a) && res.set(a, 1))
+}
+
   const getClassDesc = async () => {
     try {
-      const response: any = await getMyDesc({});
-      const { satusCode, data = {} } = response;
-      setMyDesc(data);
+      const response: any = await getMyClass({});
+      const { code, data = {} } = response;
+      console.log("🚀 ~ getClassDesc ~ data:", data)
+      const uniqueArr = unique(data.data?.viewed?.concat(data.data?.purchased))
+      setMyClass(uniqueArr);
     } catch (error) {
       Taro.showToast({
         title: "请求失败",
@@ -30,6 +40,7 @@ export default function Index() {
   };
 
   const handleClassTap = (classInfo) => {
+    console.log("🚀 ~ handleClassTap ~ classInfo:", classInfo)
     const { classId } = classInfo;
     Taro.navigateTo({
       url: `/pages/Class/ClassDesc/index?classId=${classId}`,
@@ -52,22 +63,7 @@ export default function Index() {
   };
 
   const handleLoginTap = ()=>{
-    Taro.login({
-      success: function (res) {
-        console.log("🚀 ~ handleLoginTap ~ res:", res)
-        if (res.code) {
-          //发起网络请求
-          Taro.request({
-            url: 'https://test.com/onLogin',
-            data: {
-              code: res.code
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+    Taro.navigateTo({url:'/pages/Login/index'})
   }
 
   return (
@@ -132,7 +128,7 @@ export default function Index() {
                   textAlign: "center",
                 }}
               >
-                {Taro.getStorageSync('nickName')}
+                {Taro.getStorageSync('nickName')||'微信用户'}
               </View>
             </View>
           </>
@@ -142,15 +138,15 @@ export default function Index() {
       <View className="list-container">
         <View className="my-class-container">
           <View className="card-title">我的课程</View>
-          {myDesc?.myClass?.length ? (
+          {myClass?.length ? (
             <ScrollView scrollX className="card-list">
-              {myDesc?.myClass?.map((item) => (
+              {myClass?.map((item) => (
                 <View
                   className="card-item"
-                  onTap={(item) => handleClassTap(item)}
+                  onTap={() => handleClassTap(item)}
                 >
                   <Image
-                    src={item.coverImage}
+                    src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${item.classId}/coverImage.jpg` || defaultImg}
                     style={{ width: 140, height: 84, borderRadius: 7 }}
                   />
                   <View className="card-item-title">{item.className}</View>
@@ -166,8 +162,8 @@ export default function Index() {
       <View className="list-container">
         <View className="my-class-container">
           <View className="card-title">我的证书</View>
-          {myDesc?.myCertificate?.length?<ScrollView scrollX className="card-list">
-            {myDesc?.myCertificate?.map((item) => (
+          {myCertificate?.length?<ScrollView scrollX className="card-list">
+            {myCertificate?.map((item) => (
               <View
                 className="card-item"
                 onTap={() => handleCertificateTap(item)}

@@ -19,6 +19,8 @@ export default function Index ({curSessionId,classDesc,setCurSessionObj}) {
   const handleSessionTap = (sessionId)=>{
     const learningSessionObj = classDesc?.context?.find((i)=>(i.sessionId === sessionId))
     setCurSessionObj(learningSessionObj)
+    Taro.setStorageSync('curLearningSession',sessionId)
+
   }
 
   return (

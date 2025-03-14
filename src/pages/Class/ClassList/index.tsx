@@ -1,5 +1,5 @@
 import { View, Text,Input } from '@tarojs/components'
-import { useLoad ,useTabItemTap} from '@tarojs/taro'
+import { useLoad ,useTabItemTap,useDidShow} from '@tarojs/taro'
 import ClassList from './components/ClassList'
 import {getClassListAPI} from '@/services/class'
 import './index.scss'
@@ -9,7 +9,7 @@ import Taro from '@tarojs/taro'
 export default function Index () {
   const [classListArr,setClassListArr] = useState([])
 
-  useTabItemTap(() => {
+  useDidShow(() => {
     getClassList({})
   })
 

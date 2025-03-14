@@ -31,9 +31,12 @@ const allPageArr = [
   {
     pagePath: 'pages/Login/index',
     text: '登录',
-    // iconPath:'./assets/icons/book_gray.png',
-    // selectedIconPath: "./assets/icons/book.png",
   },
+  {
+    pagePath: 'pages/PayResult/index',
+    text: '支付结果',
+  },
+  
 ]
 
 export default defineAppConfig({

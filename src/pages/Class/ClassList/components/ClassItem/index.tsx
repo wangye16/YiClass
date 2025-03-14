@@ -6,7 +6,7 @@ import "./index.less";
 
 
 export default function Index({ classInfo }) {
-  const { classId, studyNum,price,coverImage, className, description,paymentStatus } = classInfo;
+  const { classId, studyCount,price,coverImage, className, description,paymentStatus } = classInfo;
 
   const getPriceText = ()=>{
     let resObj = {text:`¥${price}`,color:'#000'}
@@ -27,7 +27,7 @@ export default function Index({ classInfo }) {
 
   const onClassItemTap=()=>{
     Taro.navigateTo({
-      url:`/pages/Class/ClassDesc/index?classId=${classId}`
+      url:`/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}`
     })
   }
 
@@ -60,7 +60,7 @@ export default function Index({ classInfo }) {
         <View style={{ fontSize: 12, marginTop: 14 ,display:'flex',justifyContent:'space-between'}}>
           <View style={{color:'#4B5563'}}>
             <Image src={studentImg} style={{width:14, height:14,marginRight:3,verticalAlign:'middle'}}></Image>
-             <Text style={{verticalAlign:'middle'}}>{studyNum}人学习</Text>
+             <Text style={{verticalAlign:'middle'}}>{studyCount}人学习</Text>
             </View>
           <View style={{fontSize:14,fontWeight:500,color:getPriceText().color}}>{getPriceText().text}</View>
           </View>

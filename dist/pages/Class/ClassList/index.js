@@ -29,7 +29,7 @@
 
 function Index() {
   const [classListArr, setClassListArr] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
-  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useTabItemTap)(() => {
+  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useDidShow)(() => {
     getClassList({});
   });
   const getClassList = async props => {
@@ -92,7 +92,7 @@ function Index(_ref) {
   } = _ref;
   const {
     classId,
-    studyNum,
+    studyCount,
     price,
     coverImage,
     className,
@@ -120,7 +120,7 @@ function Index(_ref) {
   };
   const onClassItemTap = () => {
     _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().navigateTo({
-      url: `/pages/Class/ClassDesc/index?classId=${classId}`
+      url: `/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}`
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__.View, {
@@ -175,7 +175,7 @@ function Index(_ref) {
             style: {
               verticalAlign: 'middle'
             },
-            children: [studyNum, "\u4EBA\u5B66\u4E60"]
+            children: [studyCount, "\u4EBA\u5B66\u4E60"]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__.View, {
           style: {

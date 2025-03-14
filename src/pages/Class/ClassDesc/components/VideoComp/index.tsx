@@ -38,6 +38,7 @@ export default function Index ({desc,curSessionObj,sessionId}) {
           signature='水印'
           pageGesture
           showPlayBtn
+          direction={90}
           // showCenterPlayBtn
           // showCastingButton
           showScreenLockButton

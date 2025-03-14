@@ -12,7 +12,7 @@ import Taro from "@tarojs/taro";
 
 export default function Index() {
   const { params: urlParams } = useRouter();
-  const {classId} = urlParams
+  const {classId,studyCount} = urlParams
   const [classDesc, setClassDesc] = useState<any>({});
   const [curSessionObj, setCurSessionObj] = useState<any>({});
 
@@ -22,11 +22,17 @@ export default function Index() {
 
   useUnload(()=>{
     // 卸载页面时上传所有章节的进度，然后清除缓存
-    const progressArr = classDesc?.context?.map((item)=>({
+    const progressArr = classDesc?.context?.map((item)=>{
+      let obj:any = {
         sessionId:item.sessionId,
         classId,
         progress :Taro.getStorageSync(item.sessionId+'')
-      }))
+      }
+      if (item.sessionId == Taro.getStorageSync('curLearningSession')) {
+        obj.isLearning = true
+      }
+      return obj
+    })
     postSessionProgress(progressArr)
 
     console.log('视频页面已经卸载，缓存是：',Taro.getStorageInfoSync());
@@ -34,6 +40,10 @@ export default function Index() {
       console.log('a',item.sessionId)
       Taro.removeStorageSync(item.sessionId)
     })
+
+    // 删除curLearningSession字段
+    Taro.removeStorageSync('curLearningSession')
+
     console.log('视频页面已经卸载，清除后缓存是：',Taro.getStorageInfoSync());
     
   })
@@ -109,7 +119,7 @@ export default function Index() {
             }}
           ></Image>
           <Text style={{ verticalAlign: "middle" }}>
-            {classDesc?.studyNum}人学习
+            {studyCount}人学习
           </Text>
         </View>
 

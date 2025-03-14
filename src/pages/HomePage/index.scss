@@ -1,3 +1,4 @@
+@import "~taro-ui/dist/style/components/tabs.scss";
 .home-container {
   width: 375px;
   box-sizing: border-box;
@@ -66,7 +67,7 @@
     flex-direction: column;
     padding: 10.5px;
     gap: 0px 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-content:center;
   }
   .tags-tag-line1{
@@ -85,7 +86,6 @@
     line-height: 14px;
     text-align: center;
     letter-spacing: 0px;
-
     font-feature-settings: "kern" on;
     color: #4B5563;
   }

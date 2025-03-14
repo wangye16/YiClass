@@ -37,8 +37,7 @@
 .my-container .card-item {
   display: inline-block;
   height: 216rpx;
-  width: 280rpx;
-  margin-right: 28rpx;
+  margin-right: 20rpx;
   border-radius: 14rpx;
 }
 .my-container .card-item-title {

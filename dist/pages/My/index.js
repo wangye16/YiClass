@@ -29,19 +29,27 @@
 
 
 
+
 function Index() {
-  const [myDesc, setMyDesc] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({});
-  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {
+  const [myClass, setMyClass] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  const [myCertificate, setMyCertificate] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useDidShow)(() => {
     getClassDesc();
   });
+  const unique = arr => {
+    const res = new Map();
+    return arr.filter(a => !res.has(a) && res.set(a, 1));
+  };
   const getClassDesc = async () => {
     try {
-      const response = await (0,_services_my__WEBPACK_IMPORTED_MODULE_3__.getMyDesc)({});
+      const response = await (0,_services_my__WEBPACK_IMPORTED_MODULE_3__.getMyClass)({});
       const {
-        satusCode,
+        code,
         data = {}
       } = response;
-      setMyDesc(data);
+      console.log("🚀 ~ getClassDesc ~ data:", data);
+      const uniqueArr = unique(data.data?.viewed?.concat(data.data?.purchased));
+      setMyClass(uniqueArr);
     } catch (error) {
       _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().showToast({
         title: "请求失败",
@@ -52,6 +60,7 @@ function Index() {
     }
   };
   const handleClassTap = classInfo => {
+    console.log("🚀 ~ handleClassTap ~ classInfo:", classInfo);
     const {
       classId
     } = classInfo;
@@ -77,21 +86,8 @@ function Index() {
     });
   };
   const handleLoginTap = () => {
-    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().login({
-      success: function (res) {
-        console.log("🚀 ~ handleLoginTap ~ res:", res);
-        if (res.code) {
-          //发起网络请求
-          _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().request({
-            url: 'https://test.com/onLogin',
-            data: {
-              code: res.code
-            }
-          });
-        } else {
-          console.log('登录失败！' + res.errMsg);
-        }
-      }
+    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().navigateTo({
+      url: '/pages/Login/index'
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
@@ -155,7 +151,7 @@ function Index() {
               overflow: "hidden",
               textAlign: "center"
             },
-            children: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('nickName')
+            children: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('nickName') || '微信用户'
           })]
         })
       })
@@ -166,14 +162,14 @@ function Index() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
           className: "card-title",
           children: "\u6211\u7684\u8BFE\u7A0B"
-        }), myDesc?.myClass?.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.ScrollView, {
+        }), myClass?.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.ScrollView, {
           scrollX: true,
           className: "card-list",
-          children: myDesc?.myClass?.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
+          children: myClass?.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
             className: "card-item",
-            onTap: item => handleClassTap(item),
+            onTap: () => handleClassTap(item),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.Image, {
-              src: item.coverImage,
+              src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${item.classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_6__.defaultImg,
               style: {
                 width: 140,
                 height: 84,
@@ -193,10 +189,10 @@ function Index() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
           className: "card-title",
           children: "\u6211\u7684\u8BC1\u4E66"
-        }), myDesc?.myCertificate?.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.ScrollView, {
+        }), myCertificate?.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.ScrollView, {
           scrollX: true,
           className: "card-list",
-          children: myDesc?.myCertificate?.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
+          children: myCertificate?.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
             className: "card-item",
             onTap: () => handleCertificateTap(item),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.Image, {
@@ -287,13 +283,12 @@ var inst = Page((0,_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__.createPageConfig
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getMyDesc: function() { return /* binding */ getMyDesc; }
+/* harmony export */   getMyClass: function() { return /* binding */ getMyClass; }
 /* harmony export */ });
 /* harmony import */ var _apiClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiClient */ "./src/services/apiClient.ts");
 
-const prefix = 'my';
-const getMyDesc = params => {
-  return _apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].get(`${prefix}/desc`, params);
+const getMyClass = params => {
+  return _apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].get(`api/my-courses`, params);
 };
 
 

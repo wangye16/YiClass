@@ -2,6 +2,7 @@ import { View, Text, Image, Swiper,SwiperItem,ScrollView } from "@tarojs/compone
 import { useReady } from "@tarojs/taro";
 import { useState } from "react";
 import { TextEllipsis } from "@taroify/core"
+import { AtTabs, AtTabsPane } from 'taro-ui'
 import { getTeacherInfo } from "@/services/home";
 import {teacherAvatar as avatar} from "@/assets/const";
 import jiangbei from '@/assets/icons/jiangbei.png'
@@ -13,7 +14,7 @@ import IntroductionTxt from './components/introductionTxt'
 import {swiper1,swiper2,swiper3} from '@/assets/const'
 
 import Taro from "@tarojs/taro";
-import "./index.less";
+import "./index.scss";
 
 export default function Index() {
   const [teacherInfo, setTeacherInfo] = useState<any>({});
@@ -34,6 +35,8 @@ export default function Index() {
     lineOneText:'易经研究院',
     lineTwoText:'学术委员会委员',
   }]
+
+  const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
 
   // const booksObjArr=[{
   //   CoverImage:book1,

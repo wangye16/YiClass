@@ -57,6 +57,13 @@ function Index() {
     lineOneText: '易经研究院',
     lineTwoText: '学术委员会委员'
   }];
+  const tabList = [{
+    title: '标签页1'
+  }, {
+    title: '标签页2'
+  }, {
+    title: '标签页3'
+  }];
 
   // const booksObjArr=[{
   //   CoverImage:book1,

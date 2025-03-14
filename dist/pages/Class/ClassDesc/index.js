@@ -40,7 +40,8 @@ function Index() {
     params: urlParams
   } = (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useRouter)();
   const {
-    classId
+    classId,
+    studyCount
   } = urlParams;
   const [classDesc, setClassDesc] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
   const [curSessionObj, setCurSessionObj] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
@@ -49,17 +50,26 @@ function Index() {
   });
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useUnload)(() => {
     // 卸载页面时上传所有章节的进度，然后清除缓存
-    const progressArr = classDesc?.context?.map(item => ({
-      sessionId: item.sessionId,
-      classId,
-      progress: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync(item.sessionId + '')
-    }));
+    const progressArr = classDesc?.context?.map(item => {
+      let obj = {
+        sessionId: item.sessionId,
+        classId,
+        progress: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync(item.sessionId + '')
+      };
+      if (item.sessionId == _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('curLearningSession')) {
+        obj.isLearning = true;
+      }
+      return obj;
+    });
     (0,_services_class__WEBPACK_IMPORTED_MODULE_1__.postSessionProgress)(progressArr);
     console.log('视频页面已经卸载，缓存是：', _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
     classDesc?.context?.map(item => {
       console.log('a', item.sessionId);
       _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().removeStorageSync(item.sessionId);
     });
+
+    // 删除curLearningSession字段
+    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().removeStorageSync('curLearningSession');
     console.log('视频页面已经卸载，清除后缓存是：', _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
   });
   const setProgressStorage = sessionList => {
@@ -133,7 +143,7 @@ function Index() {
           style: {
             verticalAlign: "middle"
           },
-          children: [classDesc?.studyNum, "\u4EBA\u5B66\u4E60"]
+          children: [studyCount, "\u4EBA\u5B66\u4E60"]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
         className: "class-desc-text",
@@ -196,28 +206,59 @@ function Index(_ref) {
   } = _ref;
   const {
     paymentStatus,
-    price
+    price,
+    classId,
+    className
   } = classDesc;
   const [payButtonLoading, setPayButtonLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const orderId = `fsdyt_${classId}${Date.now()}`;
   const onPayTap = async () => {
     setPayButtonLoading(true);
     const paymentParams = await (0,_services_pay__WEBPACK_IMPORTED_MODULE_2__.pay)({
       openid: _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().getStorageSync('openid'),
-      orderNumber: 'order123456',
-      totalFee: 1,
-      description: '随便测试'
+      orderNumber: orderId,
+      totalFee: 2,
+      // 微信支付金额的单位是分，所以需要乘以100
+      description: `课程《${className}》的支付订单`,
+      courseId: classId
     });
+    console.log("🚀 ~ onPayTap ~ paymentParams:", paymentParams);
     _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().requestPayment({
-      timeStamp: paymentParams.timeStamp,
-      nonceStr: paymentParams.nonceStr,
-      package: paymentParams.package,
-      signType: paymentParams.signType,
-      paySign: paymentParams.paySign,
+      timeStamp: paymentParams.data.timeStamp,
+      nonceStr: paymentParams.data.nonceStr,
+      package: paymentParams.data.package,
+      signType: paymentParams.data.signType,
+      paySign: paymentParams.data.paySign,
       success(res) {
         console.log("支付成功:", res);
+        (0,_services_pay__WEBPACK_IMPORTED_MODULE_2__.getPayRes)(orderId).then(res => {
+          console.log('hahah', res.data);
+          if (res.data?.code != 200) {
+            _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().showToast({
+              title: '订单异常，请联系客服',
+              icon: 'error',
+              duration: 4000
+            });
+          } else {
+            _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().redirectTo({
+              url: `/pages/PayResult/index?courseId=${res.data?.data?.courseId}&totalFee=${res.data?.data?.totalFee}`
+            });
+          }
+        }).catch(err => {
+          _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().showToast({
+            title: '订单异常，请联系客服',
+            icon: 'error',
+            duration: 4000
+          });
+        });
       },
       fail(err) {
         console.error("支付失败:", err);
+        _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().showToast({
+          title: '支付失败',
+          icon: 'error',
+          duration: 2000
+        });
       }
     });
     setPayButtonLoading(false);
@@ -295,6 +336,7 @@ function Index(_ref) {
 
 
 
+
 function Index(_ref) {
   let {
     curSessionId,
@@ -311,6 +353,7 @@ function Index(_ref) {
   const handleSessionTap = sessionId => {
     const learningSessionObj = classDesc?.context?.find(i => i.sessionId === sessionId);
     setCurSessionObj(learningSessionObj);
+    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().setStorageSync('curLearningSession', sessionId);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
     className: "session-list",
@@ -468,7 +511,8 @@ function Index(_ref) {
     playBtnPosition: "center",
     signature: "\u6C34\u5370",
     pageGesture: true,
-    showPlayBtn: true
+    showPlayBtn: true,
+    direction: 90
     // showCenterPlayBtn
     // showCastingButton
     ,
@@ -511,12 +555,16 @@ var inst = Page((0,_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__.createPageConfig
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getPayRes: function() { return /* binding */ getPayRes; },
 /* harmony export */   pay: function() { return /* binding */ pay; }
 /* harmony export */ });
 /* harmony import */ var _apiClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiClient */ "./src/services/apiClient.ts");
 
 const pay = params => {
   return _apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].post(`api/create-wechat-pay-order`, params);
+};
+const getPayRes = orderId => {
+  return _apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].get(`api/order-info/${orderId}`, {});
 };
 
 

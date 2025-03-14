@@ -2,30 +2,58 @@ import { View, Button, Text } from "@tarojs/components";
 import "./index.less";
 import { useState } from "react";
 import Taro from "@tarojs/taro";
-import {pay} from '@/services/pay'
+import {pay,getPayRes} from '@/services/pay'
 export default function Index({ classDesc }) {
-  const { paymentStatus, price } = classDesc;
+  const { paymentStatus, price ,classId,className,} = classDesc;
   const [payButtonLoading, setPayButtonLoading] = useState<boolean>(false);
+  const orderId = `fsdyt_${classId}${Date.now()}`
 
   const onPayTap=async ()=>{
     setPayButtonLoading(true)
     const paymentParams = await pay({
       openid:Taro.getStorageSync('openid'),
-      orderNumber:'order123456',
-      totalFee:1,
-      description:'随便测试'
+      orderNumber:orderId,
+      totalFee:2, // 微信支付金额的单位是分，所以需要乘以100
+      description:`课程《${className}》的支付订单`,
+      courseId:classId,
     });
+    console.log("🚀 ~ onPayTap ~ paymentParams:", paymentParams)
     Taro.requestPayment({
-      timeStamp: paymentParams.timeStamp,
-      nonceStr: paymentParams.nonceStr,
-      package: paymentParams.package,
-      signType: paymentParams.signType,
-      paySign: paymentParams.paySign,
+      timeStamp: paymentParams.data.timeStamp,
+      nonceStr: paymentParams.data.nonceStr,
+      package: paymentParams.data.package,
+      signType: paymentParams.data.signType,
+      paySign: paymentParams.data.paySign,
       success(res) {
         console.log("支付成功:", res);
+          getPayRes(orderId).then(res=>{
+            console.log('hahah',res.data);
+            if (res.data?.code != 200) {
+              Taro.showToast({
+                title:'订单异常，请联系客服',
+                icon:'error',
+                duration:4000,
+              })
+            }else{
+              Taro.redirectTo({
+                url:`/pages/PayResult/index?courseId=${res.data?.data?.courseId}&totalFee=${res.data?.data?.totalFee}`
+              })
+            }
+          }).catch(err=>{
+            Taro.showToast({
+              title:'订单异常，请联系客服',
+              icon:'error',
+              duration:4000,
+            })
+          })
       },
       fail(err) {
         console.error("支付失败:", err);
+        Taro.showToast({
+          title:'支付失败',
+          icon:'error',
+          duration:2000,
+        })
       },
     });
     setPayButtonLoading(false)
