@@ -84,7 +84,7 @@ export default function Index() {
   return (
     <View className="class-container">
       <View className="class-video-container">
-        {paymentStatus === 'notPaid' ||classDesc?.paymentStatus ==='forbid'?<Image
+        {paymentStatus === 'notPaid'?<Image
           src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || defaultImg}
           lazyLoad
           style={{

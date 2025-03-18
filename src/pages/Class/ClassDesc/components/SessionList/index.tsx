@@ -31,7 +31,7 @@ export default function Index ({curSessionId,classDesc,setCurSessionObj,paymentS
             style={{height:200}}
           >
             {context?.map(({chapterName,sessionId})=>(
-              paymentStatus=='notPaid'||classDesc?.paymentStatus=='forbid'?
+              paymentStatus=='notPaid'?
               <View 
                 style={{ height:40,fontSize: 12, marginBottom: 10 ,display:'flex',justifyContent:'space-between',backgroundColor:'#F9FAFB'}}
               >

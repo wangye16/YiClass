@@ -109,7 +109,7 @@ function Index() {
     className: "class-container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
       className: "class-video-container",
-      children: paymentStatus === 'notPaid' || classDesc?.paymentStatus === 'forbid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
+      children: paymentStatus === 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
         src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_9__.defaultImg,
         lazyLoad: true,
         style: {
@@ -377,7 +377,7 @@ function Index(_ref) {
           chapterName,
           sessionId
         } = _ref2;
-        return paymentStatus == 'notPaid' || classDesc?.paymentStatus == 'forbid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
+        return paymentStatus == 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
           style: {
             height: 40,
             fontSize: 12,
