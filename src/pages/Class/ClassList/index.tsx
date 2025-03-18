@@ -45,12 +45,12 @@ export default function Index () {
         onChange={()=>{
           console.log(123);
         }}
-      /> */}
+      />
         <Input
           className='search-input'
           placeholder={'搜索'}
           placeholderClass='search-input-placeholder'
-        ></Input>
+        ></Input> */}
       </View>
       
       <ClassList

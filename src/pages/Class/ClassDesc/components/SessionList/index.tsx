@@ -6,8 +6,8 @@ import lockedIcon from '@/assets/icons/locked.png'
 import { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 
-export default function Index ({curSessionId,classDesc,setCurSessionObj}) {
-  const {context,paymentStatus,learningSession} = classDesc
+export default function Index ({curSessionId,classDesc,setCurSessionObj,paymentStatus}) {
+  const {context,learningSession} = classDesc
   
   useReady(() => {
   })
@@ -31,7 +31,7 @@ export default function Index ({curSessionId,classDesc,setCurSessionObj}) {
             style={{height:200}}
           >
             {context?.map(({chapterName,sessionId})=>(
-              paymentStatus=='notPaid'?
+              paymentStatus=='notPaid'||classDesc?.paymentStatus=='forbid'?
               <View 
                 style={{ height:40,fontSize: 12, marginBottom: 10 ,display:'flex',justifyContent:'space-between',backgroundColor:'#F9FAFB'}}
               >

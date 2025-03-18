@@ -3,19 +3,21 @@ import Taro from '@tarojs/taro'
 import {defaultImg} from "@/assets/const";
 import studentImg from "@/assets/icons/student.png";
 import "./index.less";
+import { useState } from "react";
 
 
 export default function Index({ classInfo }) {
-  const { classId, studyCount,price,coverImage, className, description,paymentStatus } = classInfo;
-
+  // const [paymentStatus,setPaymentStatus] = useState<'paid'|'notPaid'|'free'>()
+  const { classId, studyCount,price,coverImage, className, description,requiresPurchase,isPurchased } = classInfo;
+  const paymentStatus = !requiresPurchase?'free':(isPurchased?'paid':'notPaid')
   const getPriceText = ()=>{
     let resObj = {text:`¥${price}`,color:'#000'}
-    switch (paymentStatus) {
-      case 'free':
+    switch (true) {
+      case !requiresPurchase:
          resObj.text = '免费'
          resObj.color = '#22C55E'
         break;
-        case 'paid':
+        case requiresPurchase && isPurchased:
          resObj.text = '已支付'
          resObj.color = '#22C55E'
         break;
@@ -27,7 +29,7 @@ export default function Index({ classInfo }) {
 
   const onClassItemTap=()=>{
     Taro.navigateTo({
-      url:`/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}`
+      url:`/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}&paymentStatus=${paymentStatus}`
     })
   }
 
@@ -41,7 +43,7 @@ export default function Index({ classInfo }) {
         className="cover-img"
       >
         <Image
-          mode="aspectFit"
+          mode='scaleToFill'
           src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || defaultImg}
           lazyLoad
           style={{

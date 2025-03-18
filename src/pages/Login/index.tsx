@@ -1,12 +1,25 @@
-import { View, Text,Image, ScrollView, Button,} from "@tarojs/components";
+import { View, Text,Image, ScrollView, Button,Switch} from "@tarojs/components";
 import wechat from '@/assets/icons/wechat-fill.png'
 import Taro from "@tarojs/taro";
 import {postLogin} from '@/services/login'
 import "./index.less"; 
+import { useState } from "react";
 
 export default function LoginPage() {
+  const [agreed,setAgreed] = useState(false)
+  const [showWarn,setShowWarn] = useState(false)
   const handleLogin = () => {
     console.log("微信登录跳转逻辑");
+
+    // if (!agreed) {
+    //   console.log('!agreed');
+      
+    //   setShowWarn(true)
+    // }else{
+    //   console.log('agreed');
+
+    //   setShowWarn(false)
+    // }
 
     Taro.getUserProfile({
       force:true,
@@ -49,18 +62,13 @@ export default function LoginPage() {
     
   };
 
-  const hndleReadLink1 = () => {
-    // Taro.showModal({
-    //   title:'用户协议',
-    //   content:
-    // })
+  const handleReadLink1 = () => {
+    Taro.navigateTo({url:'/pages/UserPage/index'})
   };
 
-  const hndleReadLink2 = () => {
-    // Taro.showModal({
-    //   title:'用户协议',
-    //   content:
-    // })
+  const handleReadLink2 = () => {
+    Taro.navigateTo({url:'/pages/PrivacyPage/index'})
+
   };
 
   return (
@@ -69,18 +77,23 @@ export default function LoginPage() {
         <Text className="title">富山德易堂</Text>
         <View className="subtitle">欢迎使用富山德易堂小程序</View>
 
-        <Button className="wechat-btn" openType="getUserInfo" onClick={handleLogin}>
+        <Button disabled={!agreed} className="wechat-btn" openType="getUserInfo" onTap={handleLogin}>
           <View className="wechat-btn-wrapper">
             <Image src={wechat} style={{width:20, height:20,marginRight:7,verticalAlign:'middle'}}></Image>
             微信一键登录
           </View>
         </Button>
 
+
         <View className="agreement">
-          登录即表示同意
-          <View className="link" onTap={hndleReadLink1}>《用户协议》</View>和
-          <View className="link" onTap={hndleReadLink2}>《隐私政策》</View>
+          <Switch style={{marginRight:3}} checked={agreed} type='checkbox' onChange={(e)=>{setAgreed(e.detail.value)}}></Switch>
+          我同意
+          <View className="link" onTap={handleReadLink1}>《用户协议》</View>和
+          <View className="link" onTap={handleReadLink2}>《隐私政策》</View>
         </View>
+        {showWarn?
+        <View>请阅读相关协议并勾选同意</View>:<></>
+      }
 
         <View className="security-tip">微信官方登录更安全</View>
       </View>

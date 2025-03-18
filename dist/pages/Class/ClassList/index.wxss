@@ -7,7 +7,8 @@
   margin-right: 28rpx;
   height: 490rpx;
   border-radius: 14rpx;
-  box-shadow: 0rpx 2rpx 4rpx -2rpx rgba(0, 0, 0, 0.1), 0rpx 2rpx 6rpx 0rpx rgba(0, 0, 0, 0.1);
+  border: 2rpx solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2rpx 2rpx 4rpx -2rpx rgba(0, 0, 0, 0.1), 0rpx 2rpx 6rpx 0rpx rgba(0, 0, 0, 0.1);
 }
 .class-item .cover-img {
   height: 280rpx;

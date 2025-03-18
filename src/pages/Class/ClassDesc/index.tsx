@@ -1,5 +1,5 @@
 import { View, Text, Image,ScrollView } from "@tarojs/components";
-import { useRouter, useReady, useUnload } from "@tarojs/taro";
+import { useRouter, useReady, useUnload, useDidShow } from "@tarojs/taro";
 import { getClassDescAPI,postSessionProgress } from "@/services/class";
 import studentImg from "@/assets/icons/student.png";
 import CustomVideo from "./components/VideoComp";
@@ -12,11 +12,13 @@ import Taro from "@tarojs/taro";
 
 export default function Index() {
   const { params: urlParams } = useRouter();
-  const {classId,studyCount} = urlParams
+  const {classId,studyCount,paymentStatus} = urlParams
   const [classDesc, setClassDesc] = useState<any>({});
   const [curSessionObj, setCurSessionObj] = useState<any>({});
 
-  useReady(() => {
+  useDidShow(() => {
+    console.log('useReady');
+    
     getClassDesc();
   });
 
@@ -73,15 +75,17 @@ export default function Index() {
   };
 
   useEffect(() => {
-    const learningSessionObj = classDesc?.context?.find((i)=>(i.sessionId == classDesc.learningSession))||{}
+    // if(!classDesc.learningSession) return
+    const learningSessionObj = classDesc?.context?.find((i)=>(i.sessionId == classDesc.learningSession))||classDesc?.context?.[0]||{}
+    console.log("🚀 ~ useEffect ~ learningSessionObj:", learningSessionObj)
     setCurSessionObj(learningSessionObj)
   }, [classDesc.learningSession]);
 
   return (
     <View className="class-container">
       <View className="class-video-container">
-        {classDesc?.paymentStatus == 'notPaid'?<Image
-          src={classDesc?.coverImage || defaultImg}
+        {paymentStatus === 'notPaid' ||classDesc?.paymentStatus ==='forbid'?<Image
+          src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || defaultImg}
           lazyLoad
           style={{
             width: "100%",
@@ -140,6 +144,7 @@ export default function Index() {
         </View>
 
         <SessionList 
+        paymentStatus={paymentStatus}
         curSessionId = {curSessionObj.sessionId}
         classDesc={classDesc} setCurSessionObj={setCurSessionObj}/>
       </View>

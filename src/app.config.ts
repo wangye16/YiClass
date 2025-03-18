@@ -36,6 +36,14 @@ const allPageArr = [
     pagePath: 'pages/PayResult/index',
     text: '支付结果',
   },
+  {
+    pagePath: 'pages/UserPage/index',
+    text: '用户协议',
+  },
+  {
+    pagePath: 'pages/PrivacyPage/index',
+    text: '隐私政策',
+  },
   
 ]
 

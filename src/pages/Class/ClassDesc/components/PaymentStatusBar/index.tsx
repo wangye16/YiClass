@@ -13,7 +13,7 @@ export default function Index({ classDesc }) {
     const paymentParams = await pay({
       openid:Taro.getStorageSync('openid'),
       orderNumber:orderId,
-      totalFee:2, // 微信支付金额的单位是分，所以需要乘以100
+      totalFee:price * 100, // 微信支付金额的单位是分，所以需要乘以100
       description:`课程《${className}》的支付订单`,
       courseId:classId,
     });

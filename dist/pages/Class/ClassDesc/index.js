@@ -41,11 +41,13 @@ function Index() {
   } = (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useRouter)();
   const {
     classId,
-    studyCount
+    studyCount,
+    paymentStatus
   } = urlParams;
   const [classDesc, setClassDesc] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
   const [curSessionObj, setCurSessionObj] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
-  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {
+  (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useDidShow)(() => {
+    console.log('useReady');
     getClassDesc();
   });
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useUnload)(() => {
@@ -98,15 +100,17 @@ function Index() {
     }
   };
   (0,react__WEBPACK_IMPORTED_MODULE_6__.useEffect)(() => {
-    const learningSessionObj = classDesc?.context?.find(i => i.sessionId == classDesc.learningSession) || {};
+    // if(!classDesc.learningSession) return
+    const learningSessionObj = classDesc?.context?.find(i => i.sessionId == classDesc.learningSession) || classDesc?.context?.[0] || {};
+    console.log("🚀 ~ useEffect ~ learningSessionObj:", learningSessionObj);
     setCurSessionObj(learningSessionObj);
   }, [classDesc.learningSession]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
     className: "class-container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
       className: "class-video-container",
-      children: classDesc?.paymentStatus == 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
-        src: classDesc?.coverImage || _assets_const__WEBPACK_IMPORTED_MODULE_9__.defaultImg,
+      children: paymentStatus === 'notPaid' || classDesc?.paymentStatus === 'forbid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
+        src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_9__.defaultImg,
         lazyLoad: true,
         style: {
           width: "100%",
@@ -165,6 +169,7 @@ function Index() {
           children: classDesc.description
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_SessionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        paymentStatus: paymentStatus,
         curSessionId: curSessionObj.sessionId,
         classDesc: classDesc,
         setCurSessionObj: setCurSessionObj
@@ -217,7 +222,7 @@ function Index(_ref) {
     const paymentParams = await (0,_services_pay__WEBPACK_IMPORTED_MODULE_2__.pay)({
       openid: _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().getStorageSync('openid'),
       orderNumber: orderId,
-      totalFee: 2,
+      totalFee: price * 100,
       // 微信支付金额的单位是分，所以需要乘以100
       description: `课程《${className}》的支付订单`,
       courseId: classId
@@ -341,11 +346,11 @@ function Index(_ref) {
   let {
     curSessionId,
     classDesc,
-    setCurSessionObj
+    setCurSessionObj,
+    paymentStatus
   } = _ref;
   const {
     context,
-    paymentStatus,
     learningSession
   } = classDesc;
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {});
@@ -372,7 +377,7 @@ function Index(_ref) {
           chapterName,
           sessionId
         } = _ref2;
-        return paymentStatus == 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
+        return paymentStatus == 'notPaid' || classDesc?.paymentStatus == 'forbid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
           style: {
             height: 40,
             fontSize: 12,

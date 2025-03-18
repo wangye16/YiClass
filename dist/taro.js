@@ -10,15 +10,15 @@
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Button: function() { return /* binding */ Button; },
 /* harmony export */   Image: function() { return /* binding */ Image; },
-/* harmony export */   Input: function() { return /* binding */ Input; },
 /* harmony export */   ScrollView: function() { return /* binding */ ScrollView; },
 /* harmony export */   Swiper: function() { return /* binding */ Swiper; },
 /* harmony export */   SwiperItem: function() { return /* binding */ SwiperItem; },
+/* harmony export */   Switch: function() { return /* binding */ Switch; },
 /* harmony export */   Text: function() { return /* binding */ Text; },
 /* harmony export */   Video: function() { return /* binding */ Video; },
 /* harmony export */   View: function() { return /* binding */ View; }
 /* harmony export */ });
-/* unused harmony exports Ad, AdCustom, Audio, Block, Camera, Canvas, ChannelLive, ChannelVideo, Checkbox, CheckboxGroup, CoverImage, CoverView, CustomWrapper, DraggableSheet, Editor, Form, FunctionalPageNavigator, GridBuilder, GridView, Icon, KeyboardAccessory, Label, ListBuilder, ListView, LivePlayer, LivePusher, Map, MatchMedia, MovableArea, MovableView, NativeSlot, NavigationBar, Navigator, NestedScrollBody, NestedScrollHeader, OfficialAccount, OpenContainer, OpenData, PageContainer, PageMeta, Picker, PickerView, PickerViewColumn, Progress, Radio, RadioGroup, RichText, RootPortal, ShareElement, Slider, Slot, Snapshot, Span, StickyHeader, StickySection, Switch, Textarea, VoipRoom, WebView */
+/* unused harmony exports Ad, AdCustom, Audio, Block, Camera, Canvas, ChannelLive, ChannelVideo, Checkbox, CheckboxGroup, CoverImage, CoverView, CustomWrapper, DraggableSheet, Editor, Form, FunctionalPageNavigator, GridBuilder, GridView, Icon, Input, KeyboardAccessory, Label, ListBuilder, ListView, LivePlayer, LivePusher, Map, MatchMedia, MovableArea, MovableView, NativeSlot, NavigationBar, Navigator, NestedScrollBody, NestedScrollHeader, OfficialAccount, OpenContainer, OpenData, PageContainer, PageMeta, Picker, PickerView, PickerViewColumn, Progress, Radio, RadioGroup, RichText, RootPortal, ShareElement, Slider, Slot, Snapshot, Span, StickyHeader, StickySection, Textarea, VoipRoom, WebView */
 const View = 'view';
 const Icon = 'icon';
 const Progress = 'progress';

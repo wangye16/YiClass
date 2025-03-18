@@ -2,7 +2,7 @@ const getBaseUrl = () => {
     let BASE_URL = '';
     if (process.env.NODE_ENV === 'development') {
       //开发环境 - 根据请求不同返回不同的BASE_URL
-    // BASE_URL = 'http://tkmomu.demo.natool.cn'
+    // BASE_URL = 'http://dlfhhy.demo.natool.cn'
     // BASE_URL = 'http://60.205.91.224:8080'
     BASE_URL = 'https://www.fsdyt.cn'
     } else {

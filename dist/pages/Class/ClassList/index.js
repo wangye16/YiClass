@@ -50,12 +50,7 @@ function Index() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
     className: "class-container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.View, {
-      className: "search-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_5__.Input, {
-        className: "search-input",
-        placeholder: '搜索',
-        placeholderClass: "search-input-placeholder"
-      })
+      className: "search-container"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_ClassList__WEBPACK_IMPORTED_MODULE_1__["default"], {
       list: classListArr
     })]
@@ -90,6 +85,7 @@ function Index(_ref) {
   let {
     classInfo
   } = _ref;
+  // const [paymentStatus,setPaymentStatus] = useState<'paid'|'notPaid'|'free'>()
   const {
     classId,
     studyCount,
@@ -97,19 +93,21 @@ function Index(_ref) {
     coverImage,
     className,
     description,
-    paymentStatus
+    requiresPurchase,
+    isPurchased
   } = classInfo;
+  const paymentStatus = !requiresPurchase ? 'free' : isPurchased ? 'paid' : 'notPaid';
   const getPriceText = () => {
     let resObj = {
       text: `¥${price}`,
       color: '#000'
     };
-    switch (paymentStatus) {
-      case 'free':
+    switch (true) {
+      case !requiresPurchase:
         resObj.text = '免费';
         resObj.color = '#22C55E';
         break;
-      case 'paid':
+      case requiresPurchase && isPurchased:
         resObj.text = '已支付';
         resObj.color = '#22C55E';
         break;
@@ -120,7 +118,7 @@ function Index(_ref) {
   };
   const onClassItemTap = () => {
     _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().navigateTo({
-      url: `/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}`
+      url: `/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}&paymentStatus=${paymentStatus}`
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__.View, {
@@ -130,7 +128,7 @@ function Index(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__.View, {
       className: "cover-img",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__.Image, {
-        mode: "aspectFit",
+        mode: "scaleToFill",
         src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_4__.defaultImg,
         lazyLoad: true,
         style: {
