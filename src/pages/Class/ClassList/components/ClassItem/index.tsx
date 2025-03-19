@@ -45,7 +45,7 @@ export default function Index({ classInfo }) {
       >
         <Image
           mode='scaleToFill'
-          src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || defaultImg}
+          src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage_slim.jpg` || defaultImg}
           lazyLoad
           style={{
             width: "100%",

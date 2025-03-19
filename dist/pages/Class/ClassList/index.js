@@ -130,7 +130,7 @@ function Index(_ref) {
       className: "cover-img",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__.Image, {
         mode: "scaleToFill",
-        src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_4__.defaultImg,
+        src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage_slim.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_4__.defaultImg,
         lazyLoad: true,
         style: {
           width: "100%",
