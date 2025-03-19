@@ -3,8 +3,8 @@ import "./index.less";
 import { useState } from "react";
 import Taro from "@tarojs/taro";
 import {pay,getPayRes} from '@/services/pay'
-export default function Index({ classDesc }) {
-  const { paymentStatus, price ,classId,className,} = classDesc;
+export default function Index({ classDesc,paymentStatus }) {
+  const { price ,classId,className,} = classDesc;
   const [payButtonLoading, setPayButtonLoading] = useState<boolean>(false);
   const orderId = `fsdyt_${classId}${Date.now()}`
 
@@ -29,10 +29,10 @@ export default function Index({ classDesc }) {
           getPayRes(orderId).then(res=>{
             console.log('hahah',res.data);
             if (res.data?.code != 200) {
-              Taro.showToast({
-                title:'订单异常，请联系客服',
-                icon:'error',
-                duration:4000,
+              Taro.showModal({
+                title:'提示',
+                content:'订单异常，请联系客服。客服电话：18804180217',
+                showCancel:false
               })
             }else{
               Taro.redirectTo({

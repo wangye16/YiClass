@@ -117,7 +117,7 @@ function Index(_ref) {
     return resObj;
   };
   const onClassItemTap = () => {
-    if (classInfo?.paymentStatus === 'forbid') return;
+    // if (classInfo?.paymentStatus === 'forbid') return
     _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().navigateTo({
       url: `/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}&paymentStatus=${paymentStatus}`
     });

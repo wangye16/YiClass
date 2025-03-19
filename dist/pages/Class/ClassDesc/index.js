@@ -47,7 +47,8 @@ function Index() {
   const [classDesc, setClassDesc] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
   const [curSessionObj, setCurSessionObj] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({});
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useDidShow)(() => {
-    console.log('useReady');
+    console.log("useReady");
+    console.log("🚀 ~ Index ~ urlParams:", urlParams);
     getClassDesc();
   });
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useUnload)(() => {
@@ -56,33 +57,33 @@ function Index() {
       let obj = {
         sessionId: item.sessionId,
         classId,
-        progress: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync(item.sessionId + '')
+        progress: _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync(item.sessionId + "")
       };
-      if (item.sessionId == _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync('curLearningSession')) {
+      if (item.sessionId == _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageSync("curLearningSession")) {
         obj.isLearning = true;
       }
       return obj;
     });
     (0,_services_class__WEBPACK_IMPORTED_MODULE_1__.postSessionProgress)(progressArr);
-    console.log('视频页面已经卸载，缓存是：', _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
+    console.log("视频页面已经卸载，缓存是：", _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
     classDesc?.context?.map(item => {
-      console.log('a', item.sessionId);
+      console.log("a", item.sessionId);
       _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().removeStorageSync(item.sessionId);
     });
 
     // 删除curLearningSession字段
-    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().removeStorageSync('curLearningSession');
-    console.log('视频页面已经卸载，清除后缓存是：', _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
+    _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().removeStorageSync("curLearningSession");
+    console.log("视频页面已经卸载，清除后缓存是：", _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().getStorageInfoSync());
   });
   const setProgressStorage = sessionList => {
     console.log("🚀 ~ setProgressStorage ~ sessionList:", sessionList);
     sessionList?.map(item => {
-      _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().setStorageSync(item.sessionId + '', item.progress);
+      _tarojs_taro__WEBPACK_IMPORTED_MODULE_0___default().setStorageSync(item.sessionId + "", item.progress);
     });
   };
   const getClassDesc = async () => {
     try {
-      const response = await (0,_services_class__WEBPACK_IMPORTED_MODULE_1__.getClassDescAPI)(classId || '');
+      const response = await (0,_services_class__WEBPACK_IMPORTED_MODULE_1__.getClassDescAPI)(classId || "");
       const {
         code,
         data = {}
@@ -105,78 +106,83 @@ function Index() {
     console.log("🚀 ~ useEffect ~ learningSessionObj:", learningSessionObj);
     setCurSessionObj(learningSessionObj);
   }, [classDesc.learningSession]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
     className: "class-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
-      className: "class-video-container",
-      children: paymentStatus === 'notPaid' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
-        src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_9__.defaultImg,
-        lazyLoad: true,
-        style: {
-          width: "100%",
-          height: "100%",
-          background: "#fff",
-          objectFit: "contain"
-        }
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_VideoComp__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        desc: classDesc,
-        curSessionObj: curSessionObj,
-        sessionId: curSessionObj.sessionId || classDesc.learningSession
-      }, curSessionObj.sessionId)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
-      className: "class-desc-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
-        className: "class-name-text",
-        children: classDesc?.className
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
-        style: {
-          fontSize: 12,
-          lineHeight: "18px",
-          color: "#4B5563",
-          marginTop: 6
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
-          src: _assets_icons_student_png__WEBPACK_IMPORTED_MODULE_2__,
+    children: classDesc?.paymentStatus !== "forbid" && classDesc?.classId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
+        className: "class-video-container",
+        children: paymentStatus === "notPaid" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
+          src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/video/${classId}/coverImage.jpg` || _assets_const__WEBPACK_IMPORTED_MODULE_9__.defaultImg,
+          lazyLoad: true,
           style: {
-            width: 14,
-            height: 14,
-            marginRight: 3,
-            verticalAlign: "middle"
+            width: "100%",
+            height: "100%",
+            background: "#fff",
+            objectFit: "contain"
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
-          style: {
-            verticalAlign: "middle"
-          },
-          children: [studyCount, "\u4EBA\u5B66\u4E60"]
-        })]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_VideoComp__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          desc: classDesc,
+          curSessionObj: curSessionObj,
+          sessionId: curSessionObj.sessionId || classDesc.learningSession
+        }, curSessionObj.sessionId)
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
-        className: "class-desc-text",
+        className: "class-desc-container",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
+          className: "class-name-text",
+          children: classDesc?.className
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
           style: {
-            lineHeight: "21px",
-            color: "#000"
-          },
-          children: "\u8BFE\u7A0B\u7B80\u4ECB"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.ScrollView, {
-          scrollY: true,
-          style: {
-            height: 120,
-            marginTop: 6,
-            color: "#4B5563",
             fontSize: 12,
-            lineHeight: "19px"
+            lineHeight: "18px",
+            color: "#4B5563",
+            marginTop: 6
           },
-          children: classDesc.description
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Image, {
+            src: _assets_icons_student_png__WEBPACK_IMPORTED_MODULE_2__,
+            style: {
+              width: 14,
+              height: 14,
+              marginRight: 3,
+              verticalAlign: "middle"
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
+            style: {
+              verticalAlign: "middle"
+            },
+            children: [studyCount, "\u4EBA\u5B66\u4E60"]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
+          className: "class-desc-text",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.Text, {
+            style: {
+              lineHeight: "21px",
+              color: "#000"
+            },
+            children: "\u8BFE\u7A0B\u7B80\u4ECB"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.ScrollView, {
+            scrollY: true,
+            style: {
+              height: 120,
+              marginTop: 6,
+              color: "#4B5563",
+              fontSize: 12,
+              lineHeight: "19px"
+            },
+            children: classDesc.description
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_SessionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          paymentStatus: paymentStatus,
+          curSessionId: curSessionObj.sessionId,
+          classDesc: classDesc,
+          setCurSessionObj: setCurSessionObj
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_SessionList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_PaymentStatusBar__WEBPACK_IMPORTED_MODULE_5__["default"], {
         paymentStatus: paymentStatus,
-        curSessionId: curSessionObj.sessionId,
-        classDesc: classDesc,
-        setCurSessionObj: setCurSessionObj
+        classDesc: classDesc
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_PaymentStatusBar__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      classDesc: classDesc
-    })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_8__.View, {
+      children: " \u6B22\u8FCE\u6765\u5230\u5BCC\u5C71\u5FB7\u6613\u5802 "
+    })
   });
 }
 
@@ -207,10 +213,10 @@ function Index() {
 
 function Index(_ref) {
   let {
-    classDesc
+    classDesc,
+    paymentStatus
   } = _ref;
   const {
-    paymentStatus,
     price,
     classId,
     className
@@ -239,10 +245,10 @@ function Index(_ref) {
         (0,_services_pay__WEBPACK_IMPORTED_MODULE_2__.getPayRes)(orderId).then(res => {
           console.log('hahah', res.data);
           if (res.data?.code != 200) {
-            _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().showToast({
-              title: '订单异常，请联系客服',
-              icon: 'error',
-              duration: 4000
+            _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().showModal({
+              title: '提示',
+              content: '订单异常，请联系客服。客服电话：18804180217',
+              showCancel: false
             });
           } else {
             _tarojs_taro__WEBPACK_IMPORTED_MODULE_1___default().redirectTo({

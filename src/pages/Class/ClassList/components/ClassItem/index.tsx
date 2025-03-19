@@ -28,7 +28,7 @@ export default function Index({ classInfo }) {
   }
 
   const onClassItemTap=()=>{
-    if (classInfo?.paymentStatus === 'forbid') return
+    // if (classInfo?.paymentStatus === 'forbid') return
     Taro.navigateTo({
       url:`/pages/Class/ClassDesc/index?classId=${classId}&studyCount=${studyCount}&paymentStatus=${paymentStatus}`
     })
