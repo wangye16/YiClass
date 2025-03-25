@@ -37,7 +37,6 @@
 
 
 
-
 function Index() {
   const [teacherInfo, setTeacherInfo] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({});
   const achievementObjArr = [{
@@ -86,6 +85,22 @@ function Index() {
   (0,_tarojs_taro__WEBPACK_IMPORTED_MODULE_0__.useReady)(() => {
     // getTeacherInfoApi();
   });
+  const renderSwitchItems = count => {
+    const res = [];
+    for (let index = 1; index < count; index++) {
+      res.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
+          style: {
+            width: '100%',
+            height: '100%'
+          },
+          mode: "aspectFit",
+          src: `https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/swiper${index}.jpg`
+        })
+      }));
+    }
+    return res;
+  };
   const getTeacherInfoApi = async () => {
     try {
       const response = await (0,_services_home__WEBPACK_IMPORTED_MODULE_2__.getTeacherInfo)({
@@ -173,36 +188,13 @@ function Index() {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "swiper-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Swiper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Swiper, {
         style: {
           height: '100%'
         },
         autoplay: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
-            style: {
-              width: '100%',
-              height: '100%'
-            },
-            src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.swiper1
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
-            style: {
-              width: '100%',
-              height: '100%'
-            },
-            src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.swiper2
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.SwiperItem, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.Image, {
-            style: {
-              width: '100%',
-              height: '100%'
-            },
-            src: _assets_const__WEBPACK_IMPORTED_MODULE_10__.swiper3
-          })
-        })]
+        zoom: true,
+        children: renderSwitchItems(32)
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_tarojs_components__WEBPACK_IMPORTED_MODULE_9__.View, {
       className: "achievement-container",

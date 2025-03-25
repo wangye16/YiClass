@@ -51,24 +51,6 @@
   </button>
 </template>
 
-<template name="tmpl_0_19">
-  <checkbox value="{{i.p4}}" disabled="{{i.p2}}" checked="{{i.p0||!1}}" color="{{i.p1||'#09BB07'}}" name="{{i.p3}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid||i.sid}}" data-sid="{{i.sid}}">
-    <template is="{{xs.a(c, item.nn, l)}}" data="{{i:item,c:c+1,l:xs.f(l,item.nn)}}" wx:for="{{i.cn}}" wx:key="sid" />
-  </checkbox>
-</template>
-
-<template name="tmpl_0_30">
-  <template is="{{xs.c(i, 'tmpl_0_')}}" data="{{i:i,c:c}}" />
-</template>
-
-<template name="tmpl_0_30_focus">
-  <input value="{{i.p24}}" type="{{i.p23||''}}" password="{{i.p11||!1}}" placeholder="{{i.p12}}" placeholder-style="{{i.p14}}" placeholder-class="{{i.p13||'input-placeholder'}}" disabled="{{i.p7}}" maxlength="{{xs.b(i.p9,140)}}" cursor-spacing="{{xs.b(i.p6,0)}}" focus="{{i.focus||!1}}" confirm-type="{{i.p4||'done'}}" confirm-hold="{{i.p3||!1}}" cursor="{{xs.b(i.p5,i.p24?i.p24.length:-1)}}" selection-start="{{xs.b(i.p22,-1)}}" selection-end="{{xs.b(i.p21,-1)}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" name="{{i.p10}}" always-embed="{{xs.b(i.p1,false)}}" adjust-position="{{xs.b(i.p0,true)}}" hold-keyboard="{{xs.b(i.p8,false)}}" safe-password-cert-path="{{i.p15}}" safe-password-length="{{i.p17}}" safe-password-time-stamp="{{i.p20}}" safe-password-nonce="{{i.p18}}" safe-password-salt="{{i.p19}}" safe-password-custom-hash="{{i.p16}}" auto-fill="{{i.p2}}" bindkeyboardheightchange="eh" bindnicknamereview="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid||i.sid}}" data-sid="{{i.sid}}"></input>
-</template>
-
-<template name="tmpl_0_30_blur">
-  <input value="{{i.p24}}" type="{{i.p23||''}}" password="{{i.p11||!1}}" placeholder="{{i.p12}}" placeholder-style="{{i.p14}}" placeholder-class="{{i.p13||'input-placeholder'}}" disabled="{{i.p7}}" maxlength="{{xs.b(i.p9,140)}}" cursor-spacing="{{xs.b(i.p6,0)}}" confirm-type="{{i.p4||'done'}}" confirm-hold="{{i.p3||!1}}" cursor="{{xs.b(i.p5,i.p24?i.p24.length:-1)}}" selection-start="{{xs.b(i.p22,-1)}}" selection-end="{{xs.b(i.p21,-1)}}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" name="{{i.p10}}" always-embed="{{xs.b(i.p1,false)}}" adjust-position="{{xs.b(i.p0,true)}}" hold-keyboard="{{xs.b(i.p8,false)}}" safe-password-cert-path="{{i.p15}}" safe-password-length="{{i.p17}}" safe-password-time-stamp="{{i.p20}}" safe-password-nonce="{{i.p18}}" safe-password-salt="{{i.p19}}" safe-password-custom-hash="{{i.p16}}" auto-fill="{{i.p2}}" bindkeyboardheightchange="eh" bindnicknamereview="eh" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid||i.sid}}" data-sid="{{i.sid}}"></input>
-</template>
-
 <template name="tmpl_0_71">
   <switch checked="{{i.p0||!1}}" disabled="{{i.p2}}" type="{{i.p4||'switch'}}" color="{{i.p1||'#04BE02'}}" bindchange="eh" name="{{i.p3}}" style="{{i.st}}" class="{{i.cl}}" bindtap="eh"  id="{{i.uid||i.sid}}" data-sid="{{i.sid}}"></switch>
 </template>

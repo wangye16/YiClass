@@ -135,9 +135,9 @@ export default function Index() {
                   verticalAlign: "middle",
                 }}
               ></Image>
-              <Text style={{ verticalAlign: "middle" }}>
+              {studyCount?<Text style={{ verticalAlign: "middle" }}>
                 {studyCount}人学习
-              </Text>
+              </Text>:<></>}
             </View>
 
             <View className="class-desc-text">

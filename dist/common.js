@@ -10,11 +10,9 @@
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   defaultImg: function() { return /* binding */ defaultImg; },
 /* harmony export */   my_background1: function() { return /* binding */ my_background1; },
-/* harmony export */   swiper1: function() { return /* binding */ swiper1; },
-/* harmony export */   swiper2: function() { return /* binding */ swiper2; },
-/* harmony export */   swiper3: function() { return /* binding */ swiper3; },
 /* harmony export */   teacherAvatar: function() { return /* binding */ teacherAvatar; }
 /* harmony export */ });
+/* unused harmony exports swiper1, swiper2, swiper3 */
 const defaultImg = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/defaultImg.png';
 const my_background1 = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/my_background1.png';
 const swiper1 = 'https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/swiper1.jpg';

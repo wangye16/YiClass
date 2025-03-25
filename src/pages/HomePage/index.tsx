@@ -60,6 +60,14 @@ export default function Index() {
     // getTeacherInfoApi();
   });
 
+  const renderSwitchItems = (count)=>{
+    const res:any = []
+    for (let index = 1; index < count; index++) {
+      res.push(<SwiperItem><Image style={{width:'100%',height:'100%'}} mode='aspectFit' src={`https://fsdyt-1258842400.cos.ap-chengdu.myqcloud.com/public/imgs/swiper${index}.jpg`} /></SwiperItem>)
+    }
+    return res
+  }
+
   const getTeacherInfoApi = async () => {
     try {
       const response: any = await getTeacherInfo({ teacherId: 1 });
@@ -118,10 +126,10 @@ export default function Index() {
         <Swiper 
           style={{height:'100%'}}
           autoplay
+          zoom
         >
-          <SwiperItem><Image style={{width:'100%',height:'100%'}} src={swiper1} /></SwiperItem>
-          <SwiperItem><Image style={{width:'100%',height:'100%'}} src={swiper2} /></SwiperItem>
-          <SwiperItem><Image style={{width:'100%',height:'100%'}} src={swiper3}/></SwiperItem>
+
+          {renderSwitchItems(32)}
         </Swiper>
       </View>
 
